@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中華そば 直 | 一杯に、まっすぐ。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; color: #2b2b2b; line-height: 2; background: #fff; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #e8e8e8; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 62px; }
+  .logo { font-size: 1.15rem; letter-spacing: 0.4em; }
+  nav ul { display: flex; gap: 28px; list-style: none; font-size: 0.85rem; letter-spacing: 0.1em; }
+  nav a:hover { color: #b33a3a; }
+
+  .hero { padding: 140px 0; text-align: center; background: #f7f6f3; }
+  .hero h1 { font-size: 2.4rem; letter-spacing: 0.5em; font-weight: 500; margin-bottom: 26px; text-indent: 0.5em; }
+  .hero p { color: #6e6a63; font-size: 0.95rem; letter-spacing: 0.12em; }
+  .hero .mark { width: 40px; height: 2px; background: #b33a3a; margin: 32px auto 0; }
+
+  section { padding: 88px 0; }
+  .section-title { text-align: center; font-size: 1.35rem; letter-spacing: 0.4em; margin-bottom: 12px; text-indent: 0.4em; }
+  .section-line { width: 30px; height: 1px; background: #b33a3a; margin: 0 auto 52px; }
+
+  .about { max-width: 620px; margin: 0 auto; text-align: center; font-size: 0.95rem; color: #4a463f; }
+
+  .menu-list { max-width: 560px; margin: 0 auto; }
+  .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 4px; border-bottom: 1px dotted #ccc; }
+  .menu-item .name { letter-spacing: 0.15em; }
+  .menu-item .name small { display: block; font-size: 0.75rem; color: #999; letter-spacing: 0.05em; }
+  .menu-item .price { color: #6e6a63; font-size: 0.92rem; white-space: nowrap; }
+  .menu-note { text-align: center; margin-top: 28px; font-size: 0.8rem; color: #999; }
+
+  .kodawari { background: #f7f6f3; }
+  .kodawari-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; }
+  .kodawari-item { text-align: center; }
+  .kodawari-item .kanji { font-size: 2.2rem; color: #b33a3a; margin-bottom: 18px; }
+  .kodawari-item h3 { font-size: 1rem; letter-spacing: 0.25em; margin-bottom: 14px; }
+  .kodawari-item p { font-size: 0.86rem; color: #6e6a63; text-align: left; }
+
+  .info table { width: 100%; max-width: 600px; margin: 0 auto; border-collapse: collapse; font-size: 0.92rem; }
+  .info th, .info td { padding: 16px 12px; border-bottom: 1px solid #e8e8e8; text-align: left; }
+  .info th { width: 30%; color: #b33a3a; font-weight: normal; letter-spacing: 0.2em; }
+
+  .notice { text-align: center; background: #2b2b2b; color: #f0ede6; padding: 80px 0; }
+  .notice h2 { font-size: 1.2rem; letter-spacing: 0.4em; margin-bottom: 20px; }
+  .notice p { font-size: 0.9rem; color: #b8b3a8; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 0.75rem; color: #aaa; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero { padding: 90px 0; }
+    .hero h1 { font-size: 1.7rem; }
+    .kodawari-grid { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">中華そば 直</div>
+    <nav>
+      <ul>
+        <li><a href="#menu">お品書き</a></li>
+        <li><a href="#kodawari">こだわり</a></li>
+        <li><a href="#info">店舗案内</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <h1>一杯に、まっすぐ。</h1>
+    <p>鶏と水と、醤油だけ。<br>ごまかしの利かない一杯を、毎日炊いています。</p>
+    <div class="mark"></div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">ご挨拶</h2>
+    <div class="section-line"></div>
+    <div class="about">
+      <p>化学調味料は使いません。スープは毎朝四時から、国産丸鶏と水だけで炊き上げます。営業中にスープが尽きれば、その日は閉店。不器用なやり方ですが、これが「直」の流儀です。</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <h2 class="section-title">お品書き</h2>
+    <div class="section-line"></div>
+    <div class="menu-list">
+      <div class="menu-item">
+        <span class="name">中華そば<small>鶏清湯・醤油</small></span>
+        <span class="price">900円</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">特製中華そば<small>チャーシュー増し・味玉付き</small></span>
+        <span class="price">1,250円</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">塩そば<small>数量限定・一日二十食</small></span>
+        <span class="price">950円</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">替え玉</span>
+        <span class="price">150円</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">チャーシュー丼(小)</span>
+        <span class="price">350円</span>
+      </div>
+    </div>
+    <p class="menu-note">※スープがなくなり次第、閉店いたします。</p>
+  </div>
+</section>
+
+<section id="kodawari" class="kodawari">
+  <div class="container">
+    <h2 class="section-title">三つのこだわり</h2>
+    <div class="section-line"></div>
+    <div class="kodawari-grid">
+      <div class="kodawari-item">
+        <div class="kanji">湯</div>
+        <h3>スープ</h3>
+        <p>国産丸鶏を毎朝六時間。雑味を出さぬよう、沸かさず、じっくりと。澄んだ黄金色の清湯です。</p>
+      </div>
+      <div class="kodawari-item">
+        <div class="kanji">麺</div>
+        <h3>自家製麺</h3>
+        <p>店内の製麺室で毎日打つ、国産小麦の中細ストレート。スープを持ち上げる加水率を日々調整しています。</p>
+      </div>
+      <div class="kodawari-item">
+        <div class="kanji">醤</div>
+        <h3>かえし</h3>
+        <p>木桶仕込みの生醤油を二種合わせ、二週間寝かせたかえし。香りの立ち方が違います。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info" class="info">
+  <div class="container">
+    <h2 class="section-title">店舗案内</h2>
+    <div class="section-line"></div>
+    <table>
+      <tr><th>店名</th><td>中華そば 直(すなお)</td></tr>
+      <tr><th>住所</th><td>東京都杉並区直井町1-7-3</td></tr>
+      <tr><th>営業時間</th><td>11:00〜15:00 / 17:30〜20:00(スープ切れ次第終了)</td></tr>
+      <tr><th>定休日</th><td>月曜・第3火曜</td></tr>
+      <tr><th>席数</th><td>カウンター9席</td></tr>
+      <tr><th>備考</th><td>券売機・現金のみ / 行列時は店頭の記名表にお名前を</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="notice">
+  <div class="container">
+    <h2>店主より</h2>
+    <p>予約はお受けしておりません。<br>並んででも食べたい、と思っていただける一杯を、今日も炊いています。</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 中華そば 直</p>
+</footer>
+
+</body>
+</html>

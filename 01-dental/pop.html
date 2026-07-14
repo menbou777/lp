@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>にこにこ歯科 | 家族みんなの楽しい歯医者さん</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif; color: #3a3a3a; line-height: 1.9; background: #fffdf5; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 68px; }
+  .logo { font-size: 1.3rem; font-weight: bold; color: #ff8c42; }
+  .logo span { color: #2ab7ca; }
+  nav ul { display: flex; gap: 24px; list-style: none; font-size: 0.9rem; font-weight: bold; }
+  .tel-btn { background: #ff8c42; color: #fff; padding: 10px 24px; border-radius: 999px; font-weight: bold; box-shadow: 0 3px 0 #d96f2b; }
+
+  .hero { background: linear-gradient(135deg, #aee7ec 0%, #d0f0f3 100%); padding: 70px 0; position: relative; overflow: hidden; }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; position: relative; z-index: 1; }
+  .hero-text { text-align: left; }
+  .hero .badge { display: inline-block; background: #ff5e78; color: #fff; padding: 6px 20px; border-radius: 999px; font-weight: bold; font-size: 0.85rem; margin-bottom: 20px; transform: rotate(-3deg); }
+  .hero h1 { font-size: 2.3rem; font-weight: 800; color: #1d7a85; margin-bottom: 16px; }
+  .hero h1 .accent { color: #ff8c42; }
+  .hero p { color: #33707a; margin-bottom: 32px; font-weight: bold; }
+  .hero-photo { border-radius: 32px; overflow: hidden; border: 6px solid #fff; box-shadow: 0 10px 0 rgba(29,122,133,0.15); transform: rotate(2deg); }
+  .hero-photo img { width: 100%; height: 320px; object-fit: cover; }
+  .cta { display: inline-block; background: #ff8c42; color: #fff; padding: 18px 56px; border-radius: 999px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 5px 0 #d96f2b; transition: transform .15s; }
+  .cta:hover { transform: translateY(2px); }
+  .tooth { font-size: 3rem; position: absolute; opacity: .5; }
+  .t1 { top: 10%; left: 4%; transform: rotate(-15deg); }
+  .t2 { bottom: 10%; right: 4%; transform: rotate(12deg); }
+
+  section { padding: 76px 0; }
+  .section-title { text-align: center; font-size: 1.7rem; font-weight: 800; color: #1d7a85; margin-bottom: 8px; }
+  .section-title .emoji { font-size: 1.9rem; }
+  .section-sub { text-align: center; color: #ff8c42; font-weight: bold; font-size: 0.85rem; margin-bottom: 44px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .feature { background: #fff; border-radius: 24px; overflow: hidden; text-align: center; box-shadow: 0 6px 0 #ffe3c7; border: 3px solid #ffd9b3; }
+  .feature:nth-child(2) { box-shadow: 0 6px 0 #c5edf0; border-color: #aee7ec; }
+  .feature:nth-child(3) { box-shadow: 0 6px 0 #ffd3da; border-color: #ffc2cc; }
+  .feature .photo { height: 150px; }
+  .feature .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .feature .body { padding: 24px 26px 32px; }
+  .feature .icon { font-size: 2.2rem; margin-top: -44px; margin-bottom: 8px; position: relative; }
+  .feature .icon span { display: inline-flex; width: 64px; height: 64px; background: #fff; border-radius: 50%; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+  .feature h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: 10px; color: #e07a2e; }
+  .feature:nth-child(2) h3 { color: #2ab7ca; }
+  .feature:nth-child(3) h3 { color: #ff5e78; }
+  .feature p { font-size: 0.9rem; }
+
+  .kids { background: #fff3d6; border-radius: 40px; margin: 0 20px; }
+  .kids-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+  .kids-img { border-radius: 24px; overflow: hidden; border: 5px solid #fff; box-shadow: 0 8px 0 rgba(184,134,11,0.15); }
+  .kids-img img { width: 100%; height: 280px; object-fit: cover; }
+  .kids h2 { font-size: 1.5rem; font-weight: 800; color: #b8860b; margin-bottom: 16px; }
+  .kids ul { list-style: none; }
+  .kids li { padding: 8px 0; font-weight: bold; }
+  .kids li::before { content: "✔ "; color: #ff8c42; }
+
+  .voice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .voice-card { background: #fff; border-radius: 20px; padding: 28px 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+  .voice-card .stars { color: #ffb400; margin-bottom: 10px; }
+  .voice-card p { font-size: 0.9rem; }
+  .voice-card .who { margin-top: 12px; font-size: 0.8rem; color: #999; font-weight: bold; }
+
+  .access { background: #e8f7f8; border-radius: 40px; margin: 0 20px; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+  .access-info { background: #fff; border-radius: 24px; padding: 32px 34px; border: 3px solid #aee7ec; }
+  .access-info dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 18px; font-size: 0.95rem; }
+  .access-info dt { font-weight: 800; color: #2ab7ca; white-space: nowrap; }
+  .access-info dt::before { content: "📍 "; }
+  .access-info dt.t::before { content: "🕐 "; }
+  .access-info dt.c::before { content: "🚃 "; }
+  .access-info dt.p::before { content: "🚗 "; }
+  .access-info dd { font-weight: bold; }
+  .map-wrap { border-radius: 24px; overflow: hidden; border: 5px solid #fff; box-shadow: 0 8px 0 rgba(42,183,202,0.2); }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+
+  .cta-section { background: linear-gradient(135deg, #ff8c42, #ff5e78); color: #fff; text-align: center; border-radius: 40px 40px 0 0; }
+  .cta-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+  .cta-section .tel { font-size: 2.4rem; font-weight: 800; margin: 12px 0 28px; }
+  .cta-white { display: inline-block; background: #fff; color: #ff5e78; padding: 18px 56px; border-radius: 999px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 5px 0 rgba(0,0,0,0.15); }
+
+  footer { padding: 28px 0; text-align: center; font-size: 0.8rem; color: #999; background: #fff; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.6rem; }
+    .hero-photo img { height: 220px; }
+    .features, .voice, .access-grid { grid-template-columns: 1fr; }
+    .kids-inner { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">にこにこ<span>歯科</span></div>
+    <nav>
+      <ul>
+        <li><a href="#features">とくちょう</a></li>
+        <li><a href="#kids">キッズ</a></li>
+        <li><a href="#voice">みんなの声</a></li>
+        <li><a href="#access">アクセス</a></li>
+      </ul>
+    </nav>
+    <a href="tel:0312345678" class="tel-btn">📞 よやくする</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="tooth t1">🦷</span>
+  <span class="tooth t2">✨</span>
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <div class="badge">キッズスペース完備!</div>
+      <h1>歯医者さんって、<br><span class="accent">こんなに楽しい!</span></h1>
+      <p>0歳からシニアまで、家族みんなで通えるまちの歯医者さん🦷</p>
+      <a href="#contact" class="cta">かんたんWEB予約 ▶</a>
+    </div>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=1000&q=60" alt="やさしい先生の診察" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<section id="features">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">😁</span> にこにこ歯科のここがスゴイ!</h2>
+    <p class="section-sub">FEATURES</p>
+    <div class="features">
+      <div class="feature">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=800&q=60" alt="痛くない治療" loading="lazy"></div>
+        <div class="body">
+          <div class="icon"><span>🍭</span></div>
+          <h3>痛くない工夫がいっぱい</h3>
+          <p>麻酔の前に塗る麻酔、細〜い針、あたため麻酔液。「え、もう終わり?」が合言葉です!</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=60" alt="楽しい待合室" loading="lazy"></div>
+        <div class="body">
+          <div class="icon"><span>🎮</span></div>
+          <h3>待ち時間もワクワク</h3>
+          <p>キッズスペースにはおもちゃと絵本がたくさん。天井モニターでアニメも見られます!</p>
+        </div>
+      </div>
+      <div class="feature">
+        <div class="photo"><img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=60" alt="笑顔の子ども" loading="lazy"></div>
+        <div class="body">
+          <div class="icon"><span>🎁</span></div>
+          <h3>がんばったらガチャ!</h3>
+          <p>治療をがんばったお子さまには、ごほうびガチャガチャのプレゼントがあります♪</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="kids" class="kids">
+  <div class="container kids-inner">
+    <div class="kids-img">
+      <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?auto=format&fit=crop&w=1000&q=60" alt="親子で楽しく通院" loading="lazy">
+    </div>
+    <div>
+      <h2>ファミリーにうれしいポイント</h2>
+      <ul>
+        <li>ベビーカーのまま診療室へ入れます</li>
+        <li>保育士スタッフがお子さまを見守り</li>
+        <li>親子で一緒に診療室に入れます</li>
+        <li>土日も夕方まで診療しています</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="voice">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">💬</span> みんなの声</h2>
+    <p class="section-sub">VOICE</p>
+    <div class="voice">
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>歯医者嫌いだった息子が「また行きたい!」と言うように。先生もスタッフさんも本当に優しいです。</p>
+        <div class="who">30代・2児のママ</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>説明がとても分かりやすくて安心できました。麻酔もぜんぜん痛くなくてびっくり!</p>
+        <div class="who">20代・会社員</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>家族4人でお世話になっています。土曜日にまとめて予約できるのが助かります。</p>
+        <div class="who">40代・パパ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access" class="access">
+  <div class="container">
+    <h2 class="section-title"><span class="emoji">🗺️</span> アクセス</h2>
+    <p class="section-sub">ACCESS</p>
+    <div class="access-grid">
+      <div class="access-info">
+        <dl>
+          <dt>住所</dt><dd>東京都世田谷区三軒茶屋2-5-1<br>にこにこビル1F</dd>
+          <dt class="c">最寄り駅</dt><dd>東急田園都市線「三軒茶屋駅」<br>北口から徒歩2分</dd>
+          <dt class="t">診療時間</dt><dd>9:30〜13:00 / 14:30〜18:30<br>(休診日:木曜・祝日)</dd>
+          <dt class="p">駐車場</dt><dd>専用2台+ベビーカー置き場あり</dd>
+        </dl>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都世田谷区三軒茶屋2-5-1&output=embed" loading="lazy" title="にこにこ歯科 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="container">
+    <h2>さあ、にこにこ歯科へ行こう!</h2>
+    <p>WEB予約なら24時間いつでもOK!</p>
+    <div class="tel">03-1234-5678</div>
+    <a href="#" class="cta-white">WEB予約はこちら ▶</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 にこにこ歯科</p>
+</footer>
+
+</body>
+</html>

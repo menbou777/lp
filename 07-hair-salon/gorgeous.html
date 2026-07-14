@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURELIA hair | 髪から始まる、極上の一日。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #0f0d12; color: #eae4da; line-height: 2.1; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(15,13,18,0.92); border-bottom: 1px solid rgba(196,164,110,0.3); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .logo { letter-spacing: 0.45em; color: #c4a46e; font-size: 1.05rem; }
+  nav ul { display: flex; gap: 36px; list-style: none; font-size: 0.78rem; letter-spacing: 0.28em; }
+  nav a:hover { color: #c4a46e; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at 50% 25%, #2a2333 0%, #0f0d12 65%); }
+  .hero-inner { padding: 130px 24px 90px; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.7em; color: #c4a46e; margin-bottom: 30px; }
+  .hero h1 { font-size: 2.5rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 26px; }
+  .hero p { color: #ada393; font-size: 0.95rem; margin-bottom: 48px; }
+  .cta { display: inline-block; border: 1px solid #c4a46e; color: #c4a46e; padding: 17px 62px; letter-spacing: 0.32em; font-size: 0.85rem; transition: all .3s; }
+  .cta:hover { background: #c4a46e; color: #0f0d12; }
+
+  section { padding: 108px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #c4a46e; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.65rem; font-weight: 500; letter-spacing: 0.22em; }
+  .line { width: 46px; height: 1px; background: #c4a46e; margin: 22px auto 0; }
+
+  .experience { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(196,164,110,0.3); border: 1px solid rgba(196,164,110,0.3); }
+  .exp { background: #0f0d12; padding: 52px 34px; text-align: center; }
+  .exp .num { font-size: 1.8rem; color: #c4a46e; font-style: italic; margin-bottom: 16px; }
+  .exp h3 { font-size: 1.02rem; letter-spacing: 0.15em; margin-bottom: 14px; }
+  .exp p { font-size: 0.84rem; color: #ada393; }
+
+  .menu-section { background: #16131b; border-top: 1px solid rgba(196,164,110,0.2); border-bottom: 1px solid rgba(196,164,110,0.2); }
+  .menu-list { max-width: 720px; margin: 0 auto; }
+  .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 24px 8px; border-bottom: 1px solid rgba(196,164,110,0.2); }
+  .menu-item .name { letter-spacing: 0.12em; }
+  .menu-item .name small { display: block; font-size: 0.75rem; color: #877e6f; letter-spacing: 0.1em; }
+  .menu-item .price { color: #c4a46e; letter-spacing: 0.08em; white-space: nowrap; }
+
+  .space { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .space-photo { aspect-ratio: 4/5; background: linear-gradient(160deg, #322a3e, #16131b); border: 1px solid rgba(196,164,110,0.35); display: flex; align-items: center; justify-content: center; color: #c4a46e; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .space h3 { font-size: 1.3rem; letter-spacing: 0.2em; margin-bottom: 20px; line-height: 2; }
+  .space p { font-size: 0.9rem; color: #ada393; margin-bottom: 16px; }
+
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .voice-card { border-left: 2px solid #c4a46e; padding: 6px 0 6px 28px; }
+  .voice-card p { font-size: 0.88rem; color: #cec5b6; margin-bottom: 12px; }
+  .voice-card .who { font-size: 0.76rem; color: #c4a46e; letter-spacing: 0.25em; }
+
+  .cta-section { text-align: center; background: radial-gradient(ellipse at 50% 100%, #2a2333 0%, #0f0d12 70%); }
+  .cta-section h2 { font-size: 1.5rem; letter-spacing: 0.28em; margin-bottom: 18px; }
+  .cta-section p { color: #ada393; font-size: 0.88rem; margin-bottom: 40px; }
+
+  footer { padding: 36px 0; text-align: center; font-size: 0.72rem; color: #746c5c; letter-spacing: 0.2em; border-top: 1px solid rgba(196,164,110,0.15); }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.6rem; }
+    .experience, .space, .voice { grid-template-columns: 1fr; }
+    section { padding: 70px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .hero { position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.28; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,13,18,0.55), rgba(15,13,18,0.85)); }
+  .hero-inner { position: relative; z-index: 1; }
+  .space-photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .access-grid table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .access-grid th, .access-grid td { padding: 18px 12px; border-bottom: 1px solid rgba(196,164,110,0.25); text-align: left; }
+  .access-grid th { width: 30%; color: #c4a46e; font-weight: normal; letter-spacing: 0.2em; }
+  .map-wrap { border: 1px solid rgba(196,164,110,0.45); padding: 6px; }
+  .map-wrap iframe { width: 100%; height: 340px; border: 0; display: block; filter: grayscale(60%) contrast(0.95); }
+  @media (max-width: 768px) { .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">AURELIA</div>
+    <nav>
+      <ul>
+        <li><a href="#experience">EXPERIENCE</a></li>
+        <li><a href="#menu">MENU</a></li>
+        <li><a href="#space">SPACE</a></li>
+        <li><a href="#reserve">RESERVE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1600&q=60" alt="" loading="lazy">
+  </div>
+  <div class="hero-inner">
+    <p class="en">AURELIA HAIR — OMOTESANDO</p>
+    <h1>髪から始まる、<br>極上の一日。</h1>
+    <p>ヴィンテージシャンデリアの灯る半個室で、<br>あなたのためだけの3時間を。</p>
+    <a href="#reserve" class="cta">RESERVATION</a>
+  </div>
+</div>
+
+<section id="experience">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">EXPERIENCE</p>
+      <h2>AURELIAの体験</h2>
+      <div class="line"></div>
+    </div>
+    <div class="experience">
+      <div class="exp">
+        <div class="num">I</div>
+        <h3>完全マンツーマン制</h3>
+        <p>カウンセリングから仕上げまで、担当スタイリストがすべての工程を担当。アシスタントに任せることはありません。</p>
+      </div>
+      <div class="exp">
+        <div class="num">II</div>
+        <h3>薬剤への徹底したこだわり</h3>
+        <p>国内外から厳選したオーガニック薬剤のみを使用。艶やかな仕上がりと、髪への優しさを両立します。</p>
+      </div>
+      <div class="exp">
+        <div class="num">III</div>
+        <h3>おもてなしの空間</h3>
+        <p>ウェルカムドリンクは季節のオリジナルブレンドティー。半個室のゆったりとした空間でお寛ぎください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">MENU</p>
+      <h2>メニュー</h2>
+      <div class="line"></div>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item">
+        <span class="name">デザインカット<small>カウンセリング・スパシャンプー込</small></span>
+        <span class="price">¥11,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">イルミナカラー フルコース<small>カット・集中トリートメント込</small></span>
+        <span class="price">¥26,400</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">プレミアム髪質改善<small>酸熱トリートメント・ホームケア付</small></span>
+        <span class="price">¥33,000</span>
+      </div>
+      <div class="menu-item">
+        <span class="name">AURELIAコース<small>カット・カラー・髪質改善・スパの贅沢フルコース</small></span>
+        <span class="price">¥55,000</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="space">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SPACE</p>
+      <h2>空間へのこだわり</h2>
+      <div class="line"></div>
+    </div>
+    <div class="space">
+      <div class="space-photo">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=60" alt="フレンチクラシックの店内" loading="lazy">
+      </div>
+      <div>
+        <h3>パリのアパルトマンを、<br>そのままに。</h3>
+        <p>アンティークの家具、ヘリンボーンの床、ヴィンテージシャンデリア。内装のすべてをパリから買い付け、フレンチクラシックの世界観で統一しました。</p>
+        <p>シャンプースペースは照明を落とした完全個室。マイクロバブルのスパシャンプーとともに、思わず眠りに落ちる心地よさをご体験ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="en">GUEST VOICES</p>
+      <h2>お客様の声</h2>
+      <div class="line"></div>
+    </div>
+    <div class="voice">
+      <div class="voice-card">
+        <p>「サロンに行く」というより「ご褒美の時間を過ごしに行く」感覚。仕上がりの艶が今までのサロンと全く違い、周りに褒められる回数が増えました。</p>
+        <p class="who">30代・外資系勤務</p>
+      </div>
+      <div class="voice-card">
+        <p>髪質改善でずっと悩んでいたうねりが落ち着き、朝のアイロンが不要になりました。空間も接客も一流ホテルのようで、毎回うっとりします。</p>
+        <p class="who">40代・医師</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access" class="menu-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">ACCESS</p>
+      <h2>アクセス</h2>
+      <div class="line"></div>
+    </div>
+    <div class="access-grid">
+      <div>
+        <table>
+          <tr><th>名称</th><td>AURELIA hair OMOTESANDO</td></tr>
+          <tr><th>住所</th><td>東京都渋谷区神宮前5-2-8 オーレリアメゾン2F</td></tr>
+          <tr><th>営業時間</th><td>10:00〜20:00(月曜定休)</td></tr>
+          <tr><th>アクセス</th><td>東京メトロ「表参道駅」A1出口より徒歩4分</td></tr>
+        </table>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都渋谷区神宮前5-2-8&output=embed" loading="lazy" title="AURELIA hair 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>ご予約</h2>
+    <p>お一人おひとりに時間をかけるため、1日6名様限定とさせていただいております。</p>
+    <a href="#" class="cta">RESERVATION</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 AURELIA hair OMOTESANDO</p>
+</footer>
+
+</body>
+</html>

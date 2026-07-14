@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>麺匠 黒燿 -KOKUYO- | 一杯の、芸術。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #0c0b09; color: #e8e1d3; line-height: 2.1; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(12,11,9,0.92); border-bottom: 1px solid rgba(176,141,87,0.3); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .logo { letter-spacing: 0.5em; color: #b08d57; font-size: 1.05rem; }
+  nav ul { display: flex; gap: 36px; list-style: none; font-size: 0.8rem; letter-spacing: 0.3em; }
+  nav a:hover { color: #b08d57; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at 50% 35%, #2e2415 0%, #0c0b09 65%); }
+  .hero-inner { padding: 130px 24px 90px; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.7em; color: #b08d57; margin-bottom: 30px; }
+  .hero h1 { font-size: 2.7rem; font-weight: 500; letter-spacing: 0.3em; margin-bottom: 26px; text-indent: 0.3em; }
+  .hero p { color: #aca083; font-size: 0.95rem; margin-bottom: 48px; }
+  .cta { display: inline-block; border: 1px solid #b08d57; color: #b08d57; padding: 17px 60px; letter-spacing: 0.35em; font-size: 0.85rem; transition: all .3s; }
+  .cta:hover { background: #b08d57; color: #0c0b09; }
+
+  section { padding: 108px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #b08d57; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.6rem; font-weight: 500; letter-spacing: 0.3em; text-indent: 0.3em; }
+  .line { width: 44px; height: 1px; background: #b08d57; margin: 22px auto 0; }
+
+  .signature { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .bowl-photo { aspect-ratio: 1; background: radial-gradient(circle at 50% 45%, #4a3820 0%, #1a150d 70%); border: 1px solid rgba(176,141,87,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #b08d57; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .signature h3 { font-size: 1.5rem; letter-spacing: 0.2em; margin-bottom: 8px; }
+  .signature .price { color: #b08d57; font-size: 1.1rem; margin-bottom: 20px; }
+  .signature p { font-size: 0.9rem; color: #aca083; margin-bottom: 14px; }
+
+  .course-section { background: #14110c; border-top: 1px solid rgba(176,141,87,0.2); border-bottom: 1px solid rgba(176,141,87,0.2); }
+  .courses { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .course { border: 1px solid rgba(176,141,87,0.4); padding: 46px 32px; text-align: center; background: #0c0b09; }
+  .course h3 { font-size: 1.1rem; letter-spacing: 0.25em; margin-bottom: 6px; }
+  .course .en { font-size: 0.7rem; letter-spacing: 0.3em; color: #b08d57; margin-bottom: 20px; }
+  .course .price { font-size: 1.6rem; color: #b08d57; margin-bottom: 18px; }
+  .course p { font-size: 0.84rem; color: #aca083; text-align: left; }
+
+  .material { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: rgba(176,141,87,0.3); border: 1px solid rgba(176,141,87,0.3); }
+  .material-item { background: #0c0b09; padding: 44px 38px; }
+  .material-item h3 { font-size: 1.02rem; letter-spacing: 0.2em; color: #b08d57; margin-bottom: 12px; }
+  .material-item p { font-size: 0.86rem; color: #aca083; }
+
+  .cta-section { text-align: center; background: radial-gradient(ellipse at 50% 100%, #2e2415 0%, #0c0b09 70%); }
+  .cta-section h2 { font-size: 1.5rem; letter-spacing: 0.3em; margin-bottom: 18px; }
+  .cta-section p { color: #aca083; font-size: 0.88rem; margin-bottom: 40px; }
+
+  footer { padding: 36px 0; text-align: center; font-size: 0.72rem; color: #6f6650; letter-spacing: 0.2em; border-top: 1px solid rgba(176,141,87,0.15); }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.7rem; }
+    .signature, .courses, .material { grid-template-columns: 1fr; }
+    section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">麺匠 黒燿</div>
+    <nav>
+      <ul>
+        <li><a href="#signature">看板の一杯</a></li>
+        <li><a href="#course">献立</a></li>
+        <li><a href="#material">素材</a></li>
+        <li><a href="#reserve">ご予約</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="en">RAMEN GASTRONOMY — KOKUYO</p>
+    <h1>一杯の、芸術。</h1>
+    <p>完全予約制・一日十二名様。<br>コースで味わう、ラーメンガストロノミー。</p>
+    <a href="#reserve" class="cta">ご予約はこちら</a>
+  </div>
+</div>
+
+<section id="signature">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SIGNATURE</p>
+      <h2>看板の一杯</h2>
+      <div class="line"></div>
+    </div>
+    <div class="signature">
+      <div class="bowl-photo">SIGNATURE BOWL</div>
+      <div>
+        <h3>黒燿そば</h3>
+        <p class="price">コースの主菜として提供</p>
+        <p>名古屋コーチンと羅臼昆布、三年熟成の再仕込み醤油。漆黒のスープに映えるのは、低温調理した鴨胸肉と金箔をあしらった特製雲呑。</p>
+        <p>器は有田焼の窯元に特注した黒曜石釉の逸品。香り、味、そして目でも味わう一杯です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="course" class="course-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">COURSE</p>
+      <h2>おまかせ献立</h2>
+      <div class="line"></div>
+    </div>
+    <div class="courses">
+      <div class="course">
+        <h3>燿</h3>
+        <p class="en">YOU</p>
+        <p class="price">¥4,800</p>
+        <p>前菜二品、黒燿そば、水菓子の全四品。初めての方のための入門コース。</p>
+      </div>
+      <div class="course">
+        <h3>黒燿</h3>
+        <p class="en">KOKUYO</p>
+        <p class="price">¥7,800</p>
+        <p>季節の前菜、炙りチャーシュー、和え玉、黒燿そば、甘味の全六品。当店の真髄。</p>
+      </div>
+      <div class="course">
+        <h3>極</h3>
+        <p class="en">KIWAMI</p>
+        <p class="price">¥12,000</p>
+        <p>トリュフ雲呑や鮑の肝和え麺を含む全八品に、日本酒ペアリングを添えて。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="material">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">MATERIAL</p>
+      <h2>素材への執着</h2>
+      <div class="line"></div>
+    </div>
+    <div class="material">
+      <div class="material-item">
+        <h3>名古屋コーチン</h3>
+        <p>契約農場から毎朝直送される名古屋コーチンの丸鶏のみを使用。八時間かけて引き出す出汁は、他の何にも代え難い深みを持ちます。</p>
+      </div>
+      <div class="material-item">
+        <h3>三年熟成 再仕込み醤油</h3>
+        <p>小豆島の木桶蔵に特注した、当店だけの再仕込み醤油。三年の歳月が生む、艶やかな漆黒と芳醇な香り。</p>
+      </div>
+      <div class="material-item">
+        <h3>自家製 全粒粉麺</h3>
+        <p>石臼挽きの国産小麦を、その日の湿度に合わせて配合。コースの品ごとに太さと加水を変えた三種の麺を打ち分けます。</p>
+      </div>
+      <div class="material-item">
+        <h3>湧水仕込み</h3>
+        <p>スープの九割は水。秩父山系の湧水を毎週汲み、軟水の柔らかさで素材の輪郭を際立たせます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>ご予約</h2>
+    <p>完全予約制・一日二部制(18:00 / 20:30)、各回六名様。<br>ご予約は毎月一日の正午より、翌月分を承ります。</p>
+    <a href="#" class="cta">予約サイトへ</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 麺匠 黒燿 -KOKUYO-</p>
+</footer>
+
+</body>
+</html>

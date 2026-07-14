@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>酒場 ふくべ | 旬の肴と、うまい酒。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; color: #2b2b2b; line-height: 2; background: #fcfbf7; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 920px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: rgba(252,251,247,0.95); border-bottom: 1px solid #e0ddd2; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-size: 1.15rem; letter-spacing: 0.3em; }
+  nav ul { display: flex; gap: 28px; list-style: none; font-size: 0.85rem; letter-spacing: 0.1em; }
+  nav a:hover { color: #8a2b2b; }
+
+  .hero { padding: 130px 0; text-align: center; background: #f4f1e8; }
+  .hero .kanji { writing-mode: vertical-rl; margin: 0 auto 32px; font-size: 2.4rem; letter-spacing: 0.4em; height: 220px; }
+  .hero p { color: #6b675c; font-size: 0.95rem; letter-spacing: 0.1em; }
+
+  section { padding: 84px 0; }
+  .section-title { text-align: center; font-size: 1.4rem; letter-spacing: 0.35em; margin-bottom: 10px; }
+  .section-line { width: 32px; height: 1px; background: #8a2b2b; margin: 0 auto 48px; }
+
+  .intro { max-width: 640px; margin: 0 auto; text-align: center; font-size: 0.95rem; color: #4a463c; }
+
+  .menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; max-width: 800px; margin: 0 auto; }
+  .menu-col h3 { font-size: 1rem; letter-spacing: 0.25em; margin-bottom: 20px; color: #8a2b2b; text-align: center; }
+  .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 12px 4px; border-bottom: 1px dotted #cfcabb; font-size: 0.92rem; }
+  .menu-item .price { color: #6b675c; font-size: 0.85rem; }
+  .menu-note { text-align: center; margin-top: 32px; font-size: 0.82rem; color: #999; }
+
+  .about { background: #f4f1e8; }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; max-width: 840px; margin: 0 auto; }
+  .about-photo { aspect-ratio: 4/3; background: linear-gradient(150deg, #d9d3c0, #c7bfa6); display: flex; align-items: center; justify-content: center; color: #8a8471; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .about h3 { font-size: 1.1rem; letter-spacing: 0.2em; margin-bottom: 16px; }
+  .about p { font-size: 0.92rem; color: #4a463c; }
+
+  .info table { width: 100%; max-width: 640px; margin: 0 auto; border-collapse: collapse; font-size: 0.92rem; }
+  .info th, .info td { padding: 16px 12px; border-bottom: 1px solid #e0ddd2; text-align: left; vertical-align: top; }
+  .info th { width: 28%; color: #8a2b2b; font-weight: normal; letter-spacing: 0.15em; }
+
+  .reserve { text-align: center; background: #2b2b2b; color: #f4f1e8; padding: 90px 0; }
+  .reserve h2 { font-size: 1.3rem; letter-spacing: 0.35em; margin-bottom: 20px; }
+  .reserve .tel { font-size: 2rem; letter-spacing: 0.1em; margin: 18px 0 8px; }
+  .reserve p { font-size: 0.85rem; color: #b5b0a3; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 0.78rem; color: #999; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero { padding: 80px 0; }
+    .menu-cols, .about-grid { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 840px; margin: 0 auto; }
+  .gallery figure { overflow: hidden; background: #e5e0d1; }
+  .gallery img { width: 100%; height: 220px; object-fit: cover; }
+  .gallery figcaption { font-size: 0.8rem; color: #8a8471; text-align: center; padding: 10px 0 0; letter-spacing: 0.15em; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; max-width: 960px; margin: 0 auto; }
+  .map-wrap { border: 1px solid #e0ddd2; }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+  @media (max-width: 768px) { .gallery, .info-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">酒場 ふくべ</div>
+    <nav>
+      <ul>
+        <li><a href="#menu">お品書き</a></li>
+        <li><a href="#about">店主のこと</a></li>
+        <li><a href="#info">店舗案内</a></li>
+        <li><a href="#reserve">ご予約</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <div class="kanji">旬の肴と、うまい酒。</div>
+    <p>カウンター八席、テーブル二卓。<br>店主がひとりで営む、小さな酒場です。</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">ご挨拶</h2>
+    <div class="section-line"></div>
+    <div class="intro">
+      <p>その日いちばん良い魚を市場で仕入れ、その日のうちにお出しする。派手さはありませんが、素材と向き合うことだけは、どの店にも負けないつもりです。仕事帰りの一杯に、どうぞ気軽に暖簾をくぐってください。</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <h2 class="section-title">お品書き</h2>
+    <div class="section-line"></div>
+    <div class="menu-cols">
+      <div class="menu-col">
+        <h3>肴</h3>
+        <div class="menu-item"><span>本日の刺身盛り合わせ</span><span class="price">1,200円</span></div>
+        <div class="menu-item"><span>自家製 燻製ポテトサラダ</span><span class="price">500円</span></div>
+        <div class="menu-item"><span>穴子の白焼き</span><span class="price">900円</span></div>
+        <div class="menu-item"><span>だし巻き玉子</span><span class="price">600円</span></div>
+        <div class="menu-item"><span>鶏つくねの炭火焼き</span><span class="price">700円</span></div>
+        <div class="menu-item"><span>季節の天ぷら盛り</span><span class="price">950円</span></div>
+      </div>
+      <div class="menu-col">
+        <h3>酒</h3>
+        <div class="menu-item"><span>生ビール(中)</span><span class="price">600円</span></div>
+        <div class="menu-item"><span>日本酒(半合)</span><span class="price">500円〜</span></div>
+        <div class="menu-item"><span>本格焼酎 各種</span><span class="price">550円〜</span></div>
+        <div class="menu-item"><span>自家製 果実酒サワー</span><span class="price">580円</span></div>
+        <div class="menu-item"><span>燗酒(店主おまかせ)</span><span class="price">600円</span></div>
+        <div class="menu-item"><span>ノンアルコール各種</span><span class="price">400円</span></div>
+      </div>
+    </div>
+    <p class="menu-note">※仕入れにより内容は日々変わります。本日のおすすめは黒板をご覧ください。</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">店の風景</h2>
+    <div class="section-line"></div>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1540648639573-8c848de23f0a?auto=format&fit=crop&w=800&q=60" alt="夜の店構え" loading="lazy"><figcaption>夜の店構え</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1553621042-f6e147245754?auto=format&fit=crop&w=800&q=60" alt="本日の肴" loading="lazy"><figcaption>本日の肴</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1516100882582-96c3a05fe590?auto=format&fit=crop&w=800&q=60" alt="厳選した酒" loading="lazy"><figcaption>厳選した酒</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about">
+  <div class="container about-grid">
+    <div class="about-photo">
+      <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=800&q=60" alt="仕込みをする店主" loading="lazy">
+    </div>
+    <div>
+      <h3>店主のこと</h3>
+      <p>都内の割烹で十五年修業したのち、生まれ育ったこの町に「ふくべ」を開きました。屋号は祖父が愛した瓢箪(ふくべ)から。一人で切り盛りしているため、お出しするのに少しお時間をいただくこともありますが、そのぶん一皿一皿、丁寧に作ります。</p>
+    </div>
+  </div>
+</section>
+
+<section id="info" class="info">
+  <div class="container">
+    <h2 class="section-title">店舗案内</h2>
+    <div class="section-line"></div>
+    <div class="info-grid">
+    <table>
+      <tr><th>店名</th><td>酒場 ふくべ</td></tr>
+      <tr><th>住所</th><td>東京都台東区浅草2-4-6</td></tr>
+      <tr><th>アクセス</th><td>つくばエクスプレス「浅草駅」より徒歩3分</td></tr>
+      <tr><th>営業時間</th><td>17:00〜23:00(L.O. 22:30)</td></tr>
+      <tr><th>定休日</th><td>日曜・月曜</td></tr>
+      <tr><th>席数</th><td>カウンター8席・テーブル2卓(計14席)</td></tr>
+      <tr><th>お支払い</th><td>現金・PayPay(カード不可)</td></tr>
+    </table>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=東京都台東区浅草2-4-6&output=embed" loading="lazy" title="酒場ふくべ 地図"></iframe>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="reserve">
+  <div class="container">
+    <h2>ご予約</h2>
+    <p>お席が少ないため、ご予約をおすすめしております。</p>
+    <div class="tel">03-5678-1234</div>
+    <p>営業時間内にお電話ください。仕込み中(15時以降)も対応いたします。</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 酒場 ふくべ</p>
+</footer>
+
+</body>
+</html>

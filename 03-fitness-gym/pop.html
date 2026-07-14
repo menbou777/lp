@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ワイワイジム | 楽しくなくちゃ、続かない!</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif; color: #333; line-height: 1.9; background: #fffef7; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+  .logo { font-size: 1.3rem; font-weight: 800; color: #ff4757; }
+  .join-btn { background: #ff4757; color: #fff; padding: 10px 26px; border-radius: 999px; font-weight: 800; box-shadow: 0 3px 0 #c9303e; }
+
+  .hero { background: linear-gradient(135deg, #ffe14d 0%, #ffb84d 100%); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+  .deco { position: absolute; font-size: 3rem; opacity: .6; }
+  .d1 { top: 12%; left: 7%; transform: rotate(-18deg); }
+  .d2 { top: 22%; right: 9%; transform: rotate(15deg); }
+  .d3 { bottom: 14%; left: 13%; transform: rotate(8deg); }
+  .d4 { bottom: 20%; right: 12%; transform: rotate(-10deg); }
+  .hero .badge { display: inline-block; background: #ff4757; color: #fff; padding: 8px 26px; border-radius: 999px; font-weight: 800; margin-bottom: 20px; transform: rotate(-2deg); box-shadow: 0 3px 0 #c9303e; }
+  .hero h1 { font-size: 2.5rem; font-weight: 800; color: #7a4a00; margin-bottom: 14px; line-height: 1.5; }
+  .hero h1 .accent { color: #ff4757; }
+  .hero p { font-weight: bold; color: #8a5a10; margin-bottom: 32px; }
+  .cta { display: inline-block; background: #ff4757; color: #fff; padding: 20px 60px; border-radius: 999px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 0 #c9303e; transition: transform .15s; }
+  .cta:hover { transform: translateY(3px); }
+
+  section { padding: 76px 0; }
+  .section-title { text-align: center; font-size: 1.7rem; font-weight: 800; color: #ff4757; margin-bottom: 44px; }
+
+  .programs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+  .program { background: #fff; border-radius: 24px; padding: 32px 20px; text-align: center; box-shadow: 0 5px 0 #e8e5d8; border: 3px solid #f0ecdc; transition: transform .2s; }
+  .program:hover { transform: translateY(-6px); }
+  .program .icon { font-size: 2.8rem; margin-bottom: 10px; }
+  .program h3 { font-weight: 800; font-size: 1.05rem; margin-bottom: 8px; color: #e8862d; }
+  .program p { font-size: 0.85rem; }
+
+  .price-band { background: #4ecdc4; border-radius: 40px; margin: 0 20px; color: #fff; text-align: center; }
+  .price-band h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 24px; }
+  .price-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 720px; margin: 0 auto; }
+  .price-card { background: #fff; color: #333; border-radius: 24px; padding: 36px 28px; }
+  .price-card.hot { border: 4px solid #ffb400; position: relative; }
+  .price-card.hot::before { content: "🔥 いちばん人気"; position: absolute; top: -16px; left: 50%; transform: translateX(-50%); background: #ffb400; color: #fff; font-weight: 800; font-size: 0.82rem; padding: 4px 18px; border-radius: 999px; white-space: nowrap; }
+  .price-card h3 { font-weight: 800; margin-bottom: 10px; color: #35b0a8; }
+  .price-card .price { font-size: 2.4rem; font-weight: 800; color: #ff4757; }
+  .price-card .price small { font-size: 1rem; color: #888; }
+  .price-card p { font-size: 0.88rem; margin-top: 10px; }
+
+  .voice { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .voice-card { background: #fff; border-radius: 20px; padding: 28px 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.07); position: relative; }
+  .voice-card .emoji { font-size: 2.2rem; }
+  .voice-card p { font-size: 0.9rem; margin: 10px 0; }
+  .voice-card .who { font-size: 0.8rem; color: #999; font-weight: bold; }
+
+  .cta-section { background: linear-gradient(135deg, #ff4757, #ff7f50); color: #fff; text-align: center; border-radius: 40px 40px 0 0; }
+  .cta-section h2 { font-size: 1.9rem; font-weight: 800; margin-bottom: 14px; }
+  .cta-section p { font-weight: bold; margin-bottom: 30px; }
+  .cta-white { display: inline-block; background: #fff; color: #ff4757; padding: 20px 60px; border-radius: 999px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 5px 0 rgba(0,0,0,0.15); }
+
+  footer { padding: 28px 0; text-align: center; font-size: 0.8rem; color: #999; background: #fff; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.65rem; }
+    .programs { grid-template-columns: repeat(2, 1fr); }
+    .price-cards, .voice { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+    .deco { font-size: 2rem; }
+  }
+  img { max-width: 100%; display: block; }
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .photo-strip figure { border-radius: 24px; overflow: hidden; border: 4px solid #fff; box-shadow: 0 6px 0 rgba(0,0,0,0.08); background: #ffe9c2; }
+  .photo-strip img { width: 100%; height: 210px; object-fit: cover; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .access-info { background: #fff; border-radius: 24px; padding: 30px 32px; border: 3px solid #ffd9a3; }
+  .access-info dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 0.95rem; }
+  .access-info dt { font-weight: 800; color: #e8862d; white-space: nowrap; }
+  .access-info dd { font-weight: bold; }
+  .map-wrap { border-radius: 24px; overflow: hidden; border: 4px solid #fff; box-shadow: 0 6px 0 rgba(0,0,0,0.08); }
+  .map-wrap iframe { width: 100%; height: 300px; border: 0; display: block; }
+  @media (max-width: 768px) { .photo-strip, .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">💪 ワイワイジム</div>
+    <a href="#join" class="join-btn">無料体験GO!</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="deco d1">💪</span>
+  <span class="deco d2">🏃</span>
+  <span class="deco d3">🎵</span>
+  <span class="deco d4">🔥</span>
+  <div class="container">
+    <div class="badge">今なら入会金0円!</div>
+    <h1>楽しくなくちゃ、<br><span class="accent">続かない!</span></h1>
+    <p>音楽ガンガン🎵 みんなでワイワイ🎉 気づいたら汗だくの60分!</p>
+    <a href="#join" class="cta">無料体験にいってみる ▶</a>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🎪 えらべる楽しいプログラム</h2>
+    <div class="programs">
+      <div class="program">
+        <div class="icon">🥊</div>
+        <h3>暗闇ボクシング</h3>
+        <p>クラブみたいな暗闇空間で、音楽に合わせてパンチ!ストレス発散No.1!</p>
+      </div>
+      <div class="program">
+        <div class="icon">🚴</div>
+        <h3>バイクエクササイズ</h3>
+        <p>ライブ感覚のバイクレッスン。ペダルを漕げば気分はフェス!</p>
+      </div>
+      <div class="program">
+        <div class="icon">💃</div>
+        <h3>ダンスフィット</h3>
+        <p>K-POPからJ-POPまで!踊れなくても大丈夫、笑えばOK!</p>
+      </div>
+      <div class="program">
+        <div class="icon">🧘</div>
+        <h3>のんびりヨガ</h3>
+        <p>がんばった日は、キャンドルの灯りでゆったりリラックス。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">📸 スタジオの雰囲気はこんな感じ!</h2>
+    <div class="photo-strip">
+      <figure><img src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=800&q=60" alt="ライブ感満点の暗闇フィットネス" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1534787238916-9ba6764efd4f?auto=format&fit=crop&w=800&q=60" alt="バイクエクササイズ" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=60" alt="のんびりヨガ" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="price-band">
+  <div class="container">
+    <h2>🎫 料金はとってもシンプル!</h2>
+    <div class="price-cards">
+      <div class="price-card">
+        <h3>月4回プラン</h3>
+        <p class="price">5,980<small>円/月</small></p>
+        <p>週1ペースでゆる〜く続けたい方に。全プログラム参加OK!</p>
+      </div>
+      <div class="price-card hot">
+        <h3>通い放題プラン</h3>
+        <p class="price">8,980<small>円/月</small></p>
+        <p>毎日来てもOK!ウェア&タオルレンタル無料つき🎁</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">💬 メンバーのリアルな声</h2>
+    <div class="voice">
+      <div class="voice-card">
+        <div class="emoji">😆</div>
+        <p>ジム=つらいのイメージが崩壊しました。毎回フェスみたいで、金曜の夜が楽しみすぎる!</p>
+        <div class="who">26歳・アパレル</div>
+      </div>
+      <div class="voice-card">
+        <div class="emoji">🤩</div>
+        <p>3ヶ月で-5kg!ダイエット目的だったのに、いつのまにか友達まで増えてました(笑)</p>
+        <div class="who">31歳・事務職</div>
+      </div>
+      <div class="voice-card">
+        <div class="emoji">😊</div>
+        <p>運動オンチの私でも大丈夫でした。インストラクターさんが最高に盛り上げ上手!</p>
+        <div class="who">38歳・主婦</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">📍 アクセス</h2>
+    <div class="access-grid">
+      <div class="access-info">
+        <dl>
+          <dt>📍 住所</dt><dd>東京都豊島区東池袋1-9-8 ワイワイビル4F</dd>
+          <dt>🚃 最寄り駅</dt><dd>JR「池袋駅」東口から徒歩5分</dd>
+          <dt>🕐 営業時間</dt><dd>平日 7:00〜23:00 / 土日祝 9:00〜21:00</dd>
+          <dt>👟 持ち物</dt><dd>手ぶらでOK!レンタル完備🎁</dd>
+        </dl>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都豊島区東池袋1-9-8&output=embed" loading="lazy" title="ワイワイジム 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="cta-section">
+  <div class="container">
+    <h2>まずは1回、遊びに来て!</h2>
+    <p>無料体験は手ぶらでOK!ウェア・シューズ・タオル全部貸します🎁</p>
+    <a href="#" class="cta-white">無料体験を予約する ▶</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ワイワイジム</p>
+</footer>
+
+</body>
+</html>

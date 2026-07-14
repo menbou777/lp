@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FIT STANDARD | シンプルに、鍛える。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #222; line-height: 1.9; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-weight: 800; letter-spacing: 0.12em; }
+  .join-btn { background: #111; color: #fff; padding: 10px 26px; border-radius: 4px; font-size: 0.88rem; }
+
+  .hero { padding: 130px 0; background: #f6f6f6; }
+  .hero .tag { font-size: 0.8rem; letter-spacing: 0.35em; color: #888; margin-bottom: 20px; }
+  .hero h1 { font-size: 2.6rem; font-weight: 800; letter-spacing: 0.04em; margin-bottom: 20px; }
+  .hero p { color: #555; margin-bottom: 40px; }
+  .cta { display: inline-block; background: #111; color: #fff; padding: 16px 52px; border-radius: 4px; font-weight: bold; transition: opacity .2s; }
+  .cta:hover { opacity: .8; }
+
+  section { padding: 88px 0; }
+  .section-title { font-size: 1.5rem; font-weight: 800; margin-bottom: 8px; }
+  .section-sub { color: #999; font-size: 0.8rem; letter-spacing: 0.25em; margin-bottom: 44px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #e5e5e5; border: 1px solid #e5e5e5; }
+  .feature { background: #fff; padding: 44px 32px; }
+  .feature .num { font-size: 0.8rem; color: #999; letter-spacing: 0.2em; margin-bottom: 14px; }
+  .feature h3 { font-size: 1.1rem; margin-bottom: 12px; }
+  .feature p { font-size: 0.88rem; color: #666; }
+
+  .plans-section { background: #f6f6f6; }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .plan { background: #fff; border: 1px solid #e5e5e5; border-radius: 6px; padding: 40px 32px; text-align: center; }
+  .plan.featured { border: 2px solid #111; position: relative; }
+  .plan.featured::before { content: "人気No.1"; position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: #111; color: #fff; font-size: 0.75rem; padding: 4px 16px; border-radius: 999px; }
+  .plan h3 { font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 18px; }
+  .plan .price { font-size: 2.1rem; font-weight: 800; margin-bottom: 4px; }
+  .plan .price small { font-size: 0.85rem; font-weight: normal; color: #888; }
+  .plan ul { list-style: none; margin: 24px 0; font-size: 0.88rem; color: #555; text-align: left; }
+  .plan li { padding: 7px 0; border-bottom: 1px dashed #eee; }
+  .plan li::before { content: "— "; color: #bbb; }
+
+  .flow { max-width: 680px; }
+  .flow-item { display: flex; gap: 24px; padding: 24px 0; border-bottom: 1px solid #eee; }
+  .flow-item .step { flex-shrink: 0; width: 48px; height: 48px; border: 1px solid #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; }
+  .flow-item h3 { font-size: 1rem; margin-bottom: 4px; }
+  .flow-item p { font-size: 0.88rem; color: #666; }
+
+  .cta-section { background: #111; color: #fff; text-align: center; padding: 96px 0; }
+  .cta-section h2 { font-size: 1.7rem; font-weight: 800; margin-bottom: 16px; }
+  .cta-section p { color: #aaa; margin-bottom: 36px; }
+  .cta-white { display: inline-block; background: #fff; color: #111; padding: 16px 52px; border-radius: 4px; font-weight: bold; }
+
+  footer { padding: 32px 0; text-align: center; font-size: 0.78rem; color: #999; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 80px 0; }
+    .hero h1 { font-size: 1.7rem; }
+    .features, .plans { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .gallery figure { overflow: hidden; border-radius: 6px; background: #eee; }
+  .gallery img { width: 100%; height: 230px; object-fit: cover; transition: transform .3s; }
+  .gallery figure:hover img { transform: scale(1.04); }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .access-grid table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .access-grid th, .access-grid td { border: 1px solid #e5e5e5; padding: 12px; text-align: left; }
+  .access-grid th { background: #f6f6f6; font-weight: normal; width: 30%; }
+  .map-wrap { border-radius: 6px; overflow: hidden; border: 1px solid #e5e5e5; }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+  @media (max-width: 768px) { .gallery, .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">FIT STANDARD</div>
+    <a href="#join" class="join-btn">無料体験を予約</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <p class="tag">24H FITNESS GYM</p>
+    <h1>シンプルに、鍛える。</h1>
+    <p>必要なのは、良いマシンと続けられる環境だけ。<br>24時間365日、月額2,980円から使えるジム「FIT STANDARD」。</p>
+    <a href="#join" class="cta">無料体験を予約する</a>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">FIT STANDARDの特徴</h2>
+    <p class="section-sub">FEATURES</p>
+    <div class="features">
+      <div class="feature">
+        <div class="num">01</div>
+        <h3>24時間365日、いつでも</h3>
+        <p>早朝でも深夜でも、あなたのライフスタイルに合わせてトレーニング。スマートキーで入退館も簡単です。</p>
+      </div>
+      <div class="feature">
+        <div class="num">02</div>
+        <h3>業界最安水準の料金</h3>
+        <p>月額2,980円から。入会金0円、契約期間の縛りもありません。続けやすさを追求した価格設定です。</p>
+      </div>
+      <div class="feature">
+        <div class="num">03</div>
+        <h3>本格マシンを完備</h3>
+        <p>世界基準のトレーニングマシンを40台以上設置。初心者向けの使い方動画もアプリで確認できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">ジムの様子</h2>
+    <p class="section-sub">GYM FLOOR</p>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=60" alt="マシンエリア" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=800&q=60" alt="フリーウェイトエリア" loading="lazy"></figure>
+      <figure><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=800&q=60" alt="トレーニング風景" loading="lazy"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="plans-section">
+  <div class="container">
+    <h2 class="section-title">料金プラン</h2>
+    <p class="section-sub">PRICE</p>
+    <div class="plans">
+      <div class="plan">
+        <h3>デイタイム</h3>
+        <p class="price">¥2,980<small>/月</small></p>
+        <ul>
+          <li>平日 9:00 - 17:00 利用可</li>
+          <li>マシンエリア使い放題</li>
+          <li>アプリでトレーニング記録</li>
+        </ul>
+      </div>
+      <div class="plan featured">
+        <h3>スタンダード</h3>
+        <p class="price">¥4,980<small>/月</small></p>
+        <ul>
+          <li>24時間365日 使い放題</li>
+          <li>全店舗相互利用OK</li>
+          <li>シャワー・ロッカー無料</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>プレミアム</h3>
+        <p class="price">¥9,980<small>/月</small></p>
+        <ul>
+          <li>スタンダードの全特典</li>
+          <li>パーソナル指導 月2回</li>
+          <li>プロテイン1杯/日 無料</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">ご利用までの流れ</h2>
+    <p class="section-sub">FLOW</p>
+    <div class="flow">
+      <div class="flow-item">
+        <div class="step">01</div>
+        <div><h3>WEBから体験予約</h3><p>ご希望の店舗と日時を選ぶだけ。所要時間は1分です。</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="step">02</div>
+        <div><h3>無料体験(60分)</h3><p>スタッフが施設とマシンの使い方をご案内します。手ぶらでOK。</p></div>
+      </div>
+      <div class="flow-item">
+        <div class="step">03</div>
+        <div><h3>その場で入会・利用開始</h3><p>入会手続きは10分程度。当日からトレーニングを始められます。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="container">
+    <h2 class="section-title">アクセス</h2>
+    <p class="section-sub">ACCESS</p>
+    <div class="access-grid">
+      <table>
+        <tr><th>店舗名</th><td>FIT STANDARD 渋谷店</td></tr>
+        <tr><th>住所</th><td>東京都渋谷区渋谷1-5-5 FSビル3F</td></tr>
+        <tr><th>営業時間</th><td>24時間365日(スタッフアワー 11:00〜20:00)</td></tr>
+        <tr><th>アクセス</th><td>JR「渋谷駅」宮益坂口より徒歩4分</td></tr>
+      </table>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都渋谷区渋谷1-5-5&output=embed" loading="lazy" title="FIT STANDARD 渋谷店 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="cta-section">
+  <div class="container">
+    <h2>まずは、無料体験から。</h2>
+    <p>入会金0円キャンペーン実施中。しつこい勧誘は一切ありません。</p>
+    <a href="#" class="cta-white">無料体験を予約する</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 FIT STANDARD</p>
+</footer>
+
+</body>
+</html>

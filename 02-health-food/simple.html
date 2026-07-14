@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GREEN BASE | 毎日の健康を、一杯から。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #333; line-height: 1.9; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-weight: bold; letter-spacing: 0.15em; color: #4a7c59; }
+  .buy-btn { background: #4a7c59; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 0.9rem; }
+
+  .hero { background: #f3f7f2; padding: 110px 0; text-align: center; }
+  .hero .tag { color: #4a7c59; font-size: 0.85rem; letter-spacing: 0.3em; margin-bottom: 20px; }
+  .hero h1 { font-size: 2.3rem; font-weight: 600; margin-bottom: 20px; }
+  .hero p { color: #666; margin-bottom: 36px; }
+  .cta { display: inline-block; background: #4a7c59; color: #fff; padding: 16px 52px; border-radius: 4px; font-weight: bold; transition: opacity .2s; }
+  .cta:hover { opacity: .85; }
+  .hero small { display: block; margin-top: 14px; color: #999; font-size: 0.8rem; }
+
+  section { padding: 84px 0; }
+  .section-title { text-align: center; font-size: 1.6rem; margin-bottom: 12px; }
+  .section-sub { text-align: center; color: #999; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 48px; }
+
+  .concerns { max-width: 640px; margin: 0 auto; background: #fafafa; border-radius: 8px; padding: 40px; }
+  .concerns li { list-style: none; padding: 12px 0; border-bottom: 1px dashed #ddd; }
+  .concerns li::before { content: "☑ "; color: #4a7c59; }
+  .concerns .last { text-align: center; margin-top: 28px; font-weight: bold; color: #4a7c59; font-size: 1.1rem; border: none; }
+
+  .ingredients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .ing { text-align: center; padding: 36px 24px; border: 1px solid #e5e5e5; border-radius: 8px; }
+  .ing .circle { width: 88px; height: 88px; border-radius: 50%; background: #f3f7f2; color: #4a7c59; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; }
+  .ing h3 { font-size: 1.05rem; margin-bottom: 10px; }
+  .ing p { font-size: 0.88rem; color: #666; }
+
+  .price-section { background: #f3f7f2; text-align: center; }
+  .price-box { background: #fff; max-width: 520px; margin: 0 auto; border-radius: 8px; padding: 48px 40px; border: 1px solid #e0e8de; }
+  .price-box .label { display: inline-block; background: #4a7c59; color: #fff; font-size: 0.8rem; padding: 4px 16px; border-radius: 999px; margin-bottom: 20px; }
+  .price-box .old { color: #999; text-decoration: line-through; }
+  .price-box .now { font-size: 2.6rem; font-weight: bold; color: #4a7c59; }
+  .price-box .now small { font-size: 1rem; }
+  .price-box ul { list-style: none; text-align: left; margin: 24px 0; font-size: 0.9rem; }
+  .price-box li { padding: 6px 0; }
+  .price-box li::before { content: "✓ "; color: #4a7c59; font-weight: bold; }
+
+  .qa { max-width: 720px; margin: 0 auto; }
+  .qa-item { border-bottom: 1px solid #eee; padding: 24px 8px; }
+  .qa-item .q { font-weight: bold; margin-bottom: 8px; }
+  .qa-item .q::before { content: "Q. "; color: #4a7c59; }
+  .qa-item .a { font-size: 0.9rem; color: #666; }
+  .qa-item .a::before { content: "A. "; color: #c0392b; font-weight: bold; }
+
+  footer { padding: 32px 0; text-align: center; font-size: 0.78rem; color: #999; border-top: 1px solid #eee; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.5rem; }
+    .ingredients { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .hero-photo { max-width: 640px; margin: 44px auto 0; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 32px rgba(74,124,89,0.18); background: #e8efe6; }
+  .hero-photo img { width: 100%; height: 300px; object-fit: cover; }
+  .ing-photo { height: 150px; border-radius: 8px; overflow: hidden; margin-bottom: 20px; background: #e8efe6; }
+  .ing-photo img { width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">GREEN BASE</div>
+    <a href="#price" class="buy-btn">ご購入はこちら</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <p class="tag">SIMPLE & NATURAL</p>
+    <h1>毎日の健康を、一杯から。</h1>
+    <p>国産大麦若葉と22種の乳酸菌をぎゅっと一杯に。<br>続けやすさを追求した、まいにち青汁「GREEN BASE」。</p>
+    <a href="#price" class="cta">初回限定 980円で試してみる</a>
+    <small>※いつでも解約OK・送料無料</small>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=1200&q=60" alt="お茶のように飲みやすい一杯" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">こんなお悩みありませんか?</h2>
+    <p class="section-sub">CHECK</p>
+    <ul class="concerns">
+      <li>野菜不足が気になるけれど、自炊する時間がない</li>
+      <li>健康診断の数値が年々気になってきた</li>
+      <li>青汁は「まずい」イメージがあって続かなかった</li>
+      <li>サプリを何種類も飲むのは面倒</li>
+      <li class="last">そのお悩み、GREEN BASEが解決します。</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">こだわりの成分</h2>
+    <p class="section-sub">INGREDIENTS</p>
+    <div class="ingredients">
+      <div class="ing">
+        <div class="ing-photo"><img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&w=800&q=60" alt="九州産大麦若葉の畑" loading="lazy"></div>
+        <h3>九州産・大麦若葉</h3>
+        <p>農薬不使用で栽培した九州産大麦若葉を100%使用。食物繊維とミネラルが豊富です。</p>
+      </div>
+      <div class="ing">
+        <div class="ing-photo"><img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=60" alt="乳酸菌のイメージ" loading="lazy"></div>
+        <h3>22種の乳酸菌</h3>
+        <p>1杯あたり200億個の乳酸菌を配合。毎朝のすっきりをサポートします。</p>
+      </div>
+      <div class="ing">
+        <div class="ing-photo"><img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=800&q=60" alt="宇治抹茶" loading="lazy"></div>
+        <h3>宇治抹茶ブレンド</h3>
+        <p>宇治抹茶を加えることで、お茶のように飲みやすいまろやかな味わいに仕上げました。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price" class="price-section">
+  <div class="container">
+    <h2 class="section-title">はじめての方限定</h2>
+    <p class="section-sub">PRICE</p>
+    <div class="price-box">
+      <span class="label">定期初回 約67%OFF</span>
+      <p><span class="old">通常価格 2,980円</span></p>
+      <p class="now">980<small>円(税込)</small></p>
+      <ul>
+        <li>2回目以降もずっと20%OFF(2,384円)</li>
+        <li>全国どこでも送料無料</li>
+        <li>回数縛りなし・いつでも解約OK</li>
+        <li>30日間全額返金保証</li>
+      </ul>
+      <a href="#" class="cta">今すぐ試してみる</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">よくあるご質問</h2>
+    <p class="section-sub">FAQ</p>
+    <div class="qa">
+      <div class="qa-item">
+        <p class="q">本当に飲みやすいですか?</p>
+        <p class="a">宇治抹茶ブレンドで、緑茶感覚でお飲みいただけます。お子さまには牛乳割りも人気です。</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">いつ飲むのが効果的ですか?</p>
+        <p class="a">お好きなタイミングで大丈夫です。習慣にしやすい朝食時に飲まれる方が多いです。</p>
+      </div>
+      <div class="qa-item">
+        <p class="q">解約に条件はありますか?</p>
+        <p class="a">ありません。次回発送の10日前までにご連絡いただければ、いつでも解約できます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>本品は特定の疾病の治療・予防を目的としたものではありません。<br>© 2026 GREEN BASE</p>
+</footer>
+
+</body>
+</html>

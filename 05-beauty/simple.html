@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>salon lino | 肌と心を、ほどく時間。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #4a4544; line-height: 2; background: #fdfcfa; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: rgba(253,252,250,0.95); border-bottom: 1px solid #efe9e4; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { letter-spacing: 0.3em; font-size: 1.05rem; color: #a58a7f; }
+  nav ul { display: flex; gap: 28px; list-style: none; font-size: 0.85rem; }
+  nav a:hover { color: #a58a7f; }
+
+  .hero { padding: 130px 0; text-align: center; background: #f7f2ee; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.5em; color: #a58a7f; margin-bottom: 24px; }
+  .hero h1 { font-size: 1.9rem; font-weight: 500; letter-spacing: 0.2em; margin-bottom: 22px; }
+  .hero p { color: #8c8480; font-size: 0.92rem; margin-bottom: 40px; }
+  .cta { display: inline-block; background: #a58a7f; color: #fff; padding: 15px 52px; border-radius: 2px; letter-spacing: 0.2em; font-size: 0.88rem; transition: opacity .2s; }
+  .cta:hover { opacity: .85; }
+
+  section { padding: 84px 0; }
+  .section-title { text-align: center; font-size: 1.3rem; letter-spacing: 0.3em; font-weight: 500; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #c4b3a9; font-size: 0.75rem; letter-spacing: 0.35em; margin-bottom: 48px; }
+
+  .concept { max-width: 620px; margin: 0 auto; text-align: center; font-size: 0.92rem; color: #6e6663; }
+
+  .menus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .menu { background: #fff; border: 1px solid #efe9e4; padding: 40px 30px; text-align: center; }
+  .menu .en { font-size: 0.72rem; letter-spacing: 0.3em; color: #a58a7f; margin-bottom: 14px; }
+  .menu h3 { font-size: 1.05rem; font-weight: 500; letter-spacing: 0.1em; margin-bottom: 14px; }
+  .menu p { font-size: 0.85rem; color: #8c8480; margin-bottom: 20px; }
+  .menu .price { color: #a58a7f; font-size: 1.05rem; letter-spacing: 0.08em; }
+  .menu .time { font-size: 0.78rem; color: #b3aaa5; }
+
+  .first { background: #f7f2ee; text-align: center; }
+  .first-box { background: #fff; max-width: 520px; margin: 0 auto; padding: 48px 40px; border: 1px solid #e6dcd4; }
+  .first-box .label { color: #a58a7f; letter-spacing: 0.3em; font-size: 0.78rem; display: block; margin-bottom: 18px; }
+  .first-box h3 { font-weight: 500; font-size: 1.15rem; letter-spacing: 0.1em; margin-bottom: 16px; }
+  .first-box .price { font-size: 2.2rem; color: #a58a7f; margin-bottom: 6px; }
+  .first-box .price small { font-size: 0.9rem; }
+  .first-box p { font-size: 0.85rem; color: #8c8480; margin-bottom: 28px; }
+
+  .flow { max-width: 640px; margin: 0 auto; }
+  .flow-item { display: flex; gap: 24px; padding: 22px 0; border-bottom: 1px solid #efe9e4; align-items: baseline; }
+  .flow-item .step { flex-shrink: 0; color: #a58a7f; font-size: 0.8rem; letter-spacing: 0.2em; width: 64px; }
+  .flow-item h3 { font-size: 0.98rem; font-weight: 500; margin-bottom: 2px; }
+  .flow-item p { font-size: 0.85rem; color: #8c8480; }
+
+  .cta-section { text-align: center; background: #a58a7f; color: #fff; padding: 90px 0; }
+  .cta-section h2 { font-size: 1.3rem; letter-spacing: 0.3em; font-weight: 500; margin-bottom: 18px; }
+  .cta-section p { font-size: 0.88rem; opacity: .85; margin-bottom: 34px; }
+  .cta-white { display: inline-block; background: #fff; color: #a58a7f; padding: 15px 52px; letter-spacing: 0.2em; font-size: 0.88rem; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 0.75rem; color: #b3aaa5; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero { padding: 80px 0; }
+    .menus { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .gallery figure { overflow: hidden; background: #efe9e4; }
+  .gallery img { width: 100%; height: 230px; object-fit: cover; }
+  .gallery figcaption { font-size: 0.78rem; color: #a5988c; text-align: center; padding: 10px 0 0; letter-spacing: 0.2em; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .access-grid table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .access-grid th, .access-grid td { padding: 14px 10px; border-bottom: 1px solid #efe9e4; text-align: left; }
+  .access-grid th { width: 30%; color: #a58a7f; font-weight: normal; letter-spacing: 0.15em; }
+  .map-wrap { border: 1px solid #e6dcd4; }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+  @media (max-width: 768px) { .gallery, .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">salon lino</div>
+    <nav>
+      <ul>
+        <li><a href="#concept">コンセプト</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#flow">ご利用の流れ</a></li>
+        <li><a href="#reserve">ご予約</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <p class="en">PRIVATE BEAUTY SALON</p>
+    <h1>肌と心を、ほどく時間。</h1>
+    <p>完全予約制・おひとりさま貸切のプライベートサロン。<br>丁寧なカウンセリングと、オールハンドの施術を。</p>
+    <a href="#reserve" class="cta">ご予約はこちら</a>
+  </div>
+</div>
+
+<section id="concept">
+  <div class="container">
+    <h2 class="section-title">コンセプト</h2>
+    <p class="section-sub">CONCEPT</p>
+    <div class="concept">
+      <p>がんばる毎日に、月にいちど、自分をいたわる時間を。salon lino は、お客さまおひとりだけの貸切空間です。肌の状態やその日の体調を丁寧にうかがい、機械に頼らないオールハンドの施術で、肌と心をゆっくりとほぐしていきます。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">サロンの空間</h2>
+    <p class="section-sub">SPACE</p>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=60" alt="トリートメントルーム" loading="lazy"><figcaption>トリートメントルーム</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=60" alt="フェイシャルケア" loading="lazy"><figcaption>フェイシャルケア</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=60" alt="リラクゼーションスペース" loading="lazy"><figcaption>リラクゼーションスペース</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <h2 class="section-title">メニュー</h2>
+    <p class="section-sub">MENU</p>
+    <div class="menus">
+      <div class="menu">
+        <p class="en">FACIAL</p>
+        <h3>フェイシャルトリートメント</h3>
+        <p>クレンジングから保湿まで、肌質に合わせたオーダーメイドのフェイシャルケア。</p>
+        <p class="price">¥9,900</p>
+        <p class="time">約75分</p>
+      </div>
+      <div class="menu">
+        <p class="en">BODY</p>
+        <h3>ボディトリートメント</h3>
+        <p>アロマオイルを用いたリンパドレナージュで、めぐりの良い軽やかな身体へ。</p>
+        <p class="price">¥12,100</p>
+        <p class="time">約90分</p>
+      </div>
+      <div class="menu">
+        <p class="en">SPECIAL</p>
+        <h3>フェイシャル&ボディ</h3>
+        <p>お顔と全身をまとめてケアする、いちばん人気の贅沢コースです。</p>
+        <p class="price">¥18,700</p>
+        <p class="time">約150分</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="first">
+  <div class="container">
+    <h2 class="section-title">初回限定</h2>
+    <p class="section-sub">FIRST VISIT</p>
+    <div class="first-box">
+      <span class="label">はじめての方へ</span>
+      <h3>お試しフェイシャル 75分</h3>
+      <p class="price">¥5,500<small>(税込)</small></p>
+      <p>カウンセリング・お仕上げメイク込み。<br>勧誘は一切いたしませんので、ご安心ください。</p>
+      <a href="#reserve" class="cta">初回メニューを予約する</a>
+    </div>
+  </div>
+</section>
+
+<section id="flow">
+  <div class="container">
+    <h2 class="section-title">ご利用の流れ</h2>
+    <p class="section-sub">FLOW</p>
+    <div class="flow">
+      <div class="flow-item">
+        <span class="step">01</span>
+        <div><h3>カウンセリング</h3><p>お肌のお悩みや体調を、お茶を飲みながらゆっくりうかがいます。</p></div>
+      </div>
+      <div class="flow-item">
+        <span class="step">02</span>
+        <div><h3>お着替え・施術</h3><p>ガウンとタオルをご用意しています。手ぶらでお越しください。</p></div>
+      </div>
+      <div class="flow-item">
+        <span class="step">03</span>
+        <div><h3>アフターティー</h3><p>施術後はハーブティーとともに、ホームケアのご提案をいたします。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="container">
+    <h2 class="section-title">アクセス</h2>
+    <p class="section-sub">ACCESS</p>
+    <div class="access-grid">
+      <table>
+        <tr><th>サロン名</th><td>salon lino</td></tr>
+        <tr><th>住所</th><td>東京都武蔵野市吉祥寺本町2-4-2 リノビル3F</td></tr>
+        <tr><th>営業時間</th><td>10:00〜19:00(最終受付 17:00)</td></tr>
+        <tr><th>定休日</th><td>火曜・第3水曜</td></tr>
+        <tr><th>アクセス</th><td>JR「吉祥寺駅」北口より徒歩5分</td></tr>
+      </table>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都武蔵野市吉祥寺本町2-4-2&output=embed" loading="lazy" title="salon lino 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>ご予約</h2>
+    <p>完全予約制です。WEBまたはLINEにて承っております。</p>
+    <a href="#" class="cta-white">空き状況を見る</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 salon lino</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>フルーツプロテイン FURUPURO | おいしく飲んでキレイに!</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif; color: #4a3b3b; line-height: 1.9; background: #fff8f0; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+  .logo { font-size: 1.3rem; font-weight: 800; color: #ff6f91; }
+  .buy-btn { background: #ff6f91; color: #fff; padding: 10px 26px; border-radius: 999px; font-weight: bold; box-shadow: 0 3px 0 #d94f71; }
+
+  .hero { background: linear-gradient(135deg, #ffd6e0 0%, #ffe9c7 50%, #d4f5e9 100%); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+  .fruit { position: absolute; font-size: 3rem; opacity: .7; }
+  .f1 { top: 10%; left: 6%; transform: rotate(-15deg); }
+  .f2 { top: 20%; right: 8%; transform: rotate(20deg); }
+  .f3 { bottom: 12%; left: 12%; transform: rotate(10deg); }
+  .f4 { bottom: 18%; right: 14%; transform: rotate(-12deg); }
+  .hero .badge { display: inline-block; background: #ffb400; color: #fff; padding: 8px 24px; border-radius: 999px; font-weight: 800; margin-bottom: 20px; transform: rotate(-2deg); box-shadow: 0 3px 0 #cc9000; }
+  .hero h1 { font-size: 2.5rem; font-weight: 800; color: #e0526f; margin-bottom: 14px; }
+  .hero h1 small { display: block; font-size: 1.2rem; color: #4a3b3b; margin-bottom: 8px; }
+  .hero p { font-weight: bold; margin-bottom: 32px; }
+  .cta { display: inline-block; background: linear-gradient(135deg, #ff6f91, #ff9671); color: #fff; padding: 20px 60px; border-radius: 999px; font-weight: 800; font-size: 1.15rem; box-shadow: 0 6px 0 #d94f71; transition: transform .15s; }
+  .cta:hover { transform: translateY(3px); }
+  .hero .price-flash { margin-top: 18px; font-weight: 800; color: #e0526f; }
+  .hero .price-flash .big { font-size: 1.8rem; }
+
+  section { padding: 76px 0; }
+  .section-title { text-align: center; font-size: 1.7rem; font-weight: 800; color: #e0526f; margin-bottom: 44px; }
+
+  .flavors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .flavor { border-radius: 28px; padding: 40px 26px; text-align: center; border: 4px solid; background: #fff; }
+  .flavor:nth-child(1) { border-color: #ff6f91; }
+  .flavor:nth-child(2) { border-color: #ffb400; }
+  .flavor:nth-child(3) { border-color: #4ecdc4; }
+  .flavor .icon { font-size: 3.2rem; margin-bottom: 10px; }
+  .flavor h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; }
+  .flavor:nth-child(1) h3 { color: #ff6f91; }
+  .flavor:nth-child(2) h3 { color: #e5a200; }
+  .flavor:nth-child(3) h3 { color: #35b0a8; }
+  .flavor p { font-size: 0.9rem; }
+
+  .points { background: #fff; border-radius: 40px; margin: 0 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+  .points-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .point { display: flex; gap: 18px; align-items: flex-start; background: #fff8f0; border-radius: 20px; padding: 24px; }
+  .point .num { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; background: #ff6f91; color: #fff; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+  .point:nth-child(2) .num { background: #ffb400; }
+  .point:nth-child(3) .num { background: #4ecdc4; }
+  .point:nth-child(4) .num { background: #9b8cff; }
+  .point h3 { font-weight: 800; margin-bottom: 4px; }
+  .point p { font-size: 0.88rem; }
+
+  .offer { text-align: center; }
+  .offer-box { background: #fff; border: 4px dashed #ff6f91; border-radius: 32px; max-width: 560px; margin: 0 auto; padding: 48px 36px; }
+  .offer-box .ribbon { display: inline-block; background: #e0526f; color: #fff; font-weight: 800; padding: 8px 28px; border-radius: 999px; margin-bottom: 20px; }
+  .offer-box .old { text-decoration: line-through; color: #999; font-weight: bold; }
+  .offer-box .now { font-size: 3rem; font-weight: 800; color: #e0526f; }
+  .offer-box .now small { font-size: 1.1rem; }
+  .offer-box ul { list-style: none; text-align: left; max-width: 340px; margin: 20px auto 28px; font-weight: bold; font-size: 0.92rem; }
+  .offer-box li::before { content: "🎁 "; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 0.78rem; color: #a08c8c; background: #fff; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.7rem; }
+    .flavors, .points-grid { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+    .fruit { font-size: 2rem; }
+  }
+  img { max-width: 100%; display: block; }
+  .hero-photo { max-width: 520px; margin: 30px auto 0; border-radius: 28px; overflow: hidden; border: 6px solid #fff; box-shadow: 0 8px 0 rgba(224,82,111,0.25); transform: rotate(-1deg); background: #ffd6e0; }
+  .hero-photo img { width: 100%; height: 260px; object-fit: cover; }
+  .flavor-photo { border-radius: 18px; overflow: hidden; height: 140px; margin-bottom: 14px; background: #fff3e0; }
+  .flavor-photo img { width: 100%; height: 100%; object-fit: cover; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">🍓 FURUPURO</div>
+    <a href="#offer" class="buy-btn">今すぐGET!</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="fruit f1">🍓</span>
+  <span class="fruit f2">🍌</span>
+  <span class="fruit f3">🥝</span>
+  <span class="fruit f4">🍑</span>
+  <div class="container">
+    <div class="badge">SNSで話題沸騰中!</div>
+    <h1><small>まるでフルーツジュース!?</small>おいしすぎるプロテイン誕生🍓</h1>
+    <p>1杯でタンパク質15g+1日分のビタミン12種。おいしいから、続く!</p>
+    <a href="#offer" class="cta">初回限定 1,480円で試す ▶</a>
+    <p class="price-flash">今なら <span class="big">50%OFF</span> + シェイカープレゼント🎁</p>
+    <div class="hero-photo">
+      <img src="https://images.unsplash.com/photo-1490474418585-ba9bad8fd0ea?auto=format&fit=crop&w=1000&q=60" alt="フレッシュなフルーツたち" loading="lazy">
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🍹 えらべる3つのフレーバー</h2>
+    <div class="flavors">
+      <div class="flavor">
+        <div class="flavor-photo"><img src="https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=800&q=60" alt="いちご" loading="lazy"></div>
+        <div class="icon">🍓</div>
+        <h3>いちごミルク</h3>
+        <p>まるでいちごオレ!とちおとめパウダー入りの一番人気フレーバー。</p>
+      </div>
+      <div class="flavor">
+        <div class="flavor-photo"><img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=60" alt="バナナ" loading="lazy"></div>
+        <div class="icon">🍌</div>
+        <h3>バナナスムージー</h3>
+        <p>完熟バナナの自然な甘さ。朝ごはん代わりにぴったり!</p>
+      </div>
+      <div class="flavor">
+        <div class="flavor-photo"><img src="https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=800&q=60" alt="トロピカルフルーツ" loading="lazy"></div>
+        <div class="icon">🥝</div>
+        <h3>トロピカルミックス</h3>
+        <p>キウイ×マンゴー×パインの南国ブレンド。運動後のご褒美に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="points">
+  <div class="container">
+    <h2 class="section-title">💪 FURUPUROが選ばれる4つの理由</h2>
+    <div class="points-grid">
+      <div class="point">
+        <div class="num">1</div>
+        <div><h3>タンパク質15g配合</h3><p>ホエイ&ソイのWプロテインで、キレイと元気を両方サポート。</p></div>
+      </div>
+      <div class="point">
+        <div class="num">2</div>
+        <div><h3>1杯たったの78kcal</h3><p>人工甘味料不使用なのにしっかり甘い。おきかえダイエットにも◎</p></div>
+      </div>
+      <div class="point">
+        <div class="num">3</div>
+        <div><h3>ビタミン12種+鉄分</h3><p>不足しがちな栄養素を1杯にギュッと。忙しい毎日の味方です。</p></div>
+      </div>
+      <div class="point">
+        <div class="num">4</div>
+        <div><h3>水でシャカシャカ10秒</h3><p>ダマにならない特殊製法。忙しい朝でもすぐ飲める!</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offer" class="offer">
+  <div class="container">
+    <h2 class="section-title">🎉 初回限定キャンペーン</h2>
+    <div class="offer-box">
+      <span class="ribbon">初回限定 50%OFF</span>
+      <p><span class="old">通常価格 2,960円</span></p>
+      <p class="now">1,480<small>円(税込)</small></p>
+      <ul>
+        <li>オリジナルシェイカープレゼント</li>
+        <li>全国送料無料でお届け</li>
+        <li>回数縛りなし・いつでも解約OK</li>
+      </ul>
+      <a href="#" class="cta">初回半額で試してみる ▶</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>本品は特定の疾病の治療・予防を目的としたものではありません。<br>© 2026 FURUPURO</p>
+</footer>
+
+</body>
+</html>

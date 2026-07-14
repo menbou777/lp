@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ÉCLAT SPA & BEAUTY | 五感で味わう、極上のエステティック</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #14100f; color: #ede4dc; line-height: 2.1; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(20,16,15,0.92); border-bottom: 1px solid rgba(207,164,134,0.3); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .logo { letter-spacing: 0.45em; color: #cfa486; font-size: 1rem; }
+  nav ul { display: flex; gap: 36px; list-style: none; font-size: 0.78rem; letter-spacing: 0.28em; }
+  nav a:hover { color: #cfa486; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at 50% 30%, #33241d 0%, #14100f 65%); }
+  .hero-inner { padding: 130px 24px 90px; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.7em; color: #cfa486; margin-bottom: 30px; }
+  .hero h1 { font-size: 2.5rem; font-weight: 500; letter-spacing: 0.22em; margin-bottom: 26px; }
+  .hero p { color: #b5a294; font-size: 0.95rem; margin-bottom: 48px; }
+  .cta { display: inline-block; border: 1px solid #cfa486; color: #cfa486; padding: 17px 62px; letter-spacing: 0.32em; font-size: 0.85rem; transition: all .3s; }
+  .cta:hover { background: #cfa486; color: #14100f; }
+
+  section { padding: 108px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #cfa486; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.65rem; font-weight: 500; letter-spacing: 0.22em; }
+  .line { width: 46px; height: 1px; background: #cfa486; margin: 22px auto 0; }
+
+  .concept-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; }
+  .concept-photo { aspect-ratio: 4/5; background: linear-gradient(160deg, #40302a, #1c1614); border: 1px solid rgba(207,164,134,0.35); display: flex; align-items: center; justify-content: center; color: #cfa486; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .concept-grid h3 { font-size: 1.35rem; letter-spacing: 0.2em; line-height: 2; margin-bottom: 22px; }
+  .concept-grid p { font-size: 0.9rem; color: #b5a294; margin-bottom: 16px; }
+
+  .treatments { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(207,164,134,0.3); border: 1px solid rgba(207,164,134,0.3); }
+  .treatment { background: #14100f; padding: 52px 34px; text-align: center; }
+  .treatment .en { font-style: italic; color: #cfa486; font-size: 0.82rem; letter-spacing: 0.2em; margin-bottom: 18px; }
+  .treatment h3 { font-size: 1.05rem; letter-spacing: 0.15em; margin-bottom: 14px; }
+  .treatment p { font-size: 0.84rem; color: #b5a294; margin-bottom: 20px; }
+  .treatment .price { color: #cfa486; letter-spacing: 0.1em; }
+
+  .offer-section { background: #1c1614; border-top: 1px solid rgba(207,164,134,0.2); border-bottom: 1px solid rgba(207,164,134,0.2); text-align: center; }
+  .offer-box { max-width: 580px; margin: 0 auto; border: 1px solid rgba(207,164,134,0.5); padding: 58px 46px; position: relative; }
+  .offer-box::before { content: ""; position: absolute; inset: 7px; border: 1px solid rgba(207,164,134,0.25); pointer-events: none; }
+  .offer-box .label { color: #cfa486; letter-spacing: 0.45em; font-size: 0.76rem; display: block; margin-bottom: 22px; }
+  .offer-box h3 { font-size: 1.25rem; letter-spacing: 0.2em; margin-bottom: 18px; }
+  .offer-box .price { font-size: 2.3rem; color: #cfa486; margin-bottom: 8px; }
+  .offer-box .price small { font-size: 0.9rem; }
+  .offer-box p { font-size: 0.84rem; color: #b5a294; margin-bottom: 32px; }
+
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .voice-card { border-left: 2px solid #cfa486; padding: 6px 0 6px 28px; }
+  .voice-card p { font-size: 0.88rem; color: #cbbcae; margin-bottom: 12px; }
+  .voice-card .who { font-size: 0.76rem; color: #cfa486; letter-spacing: 0.25em; }
+
+  .cta-section { text-align: center; background: radial-gradient(ellipse at 50% 100%, #33241d 0%, #14100f 70%); }
+  .cta-section h2 { font-size: 1.5rem; letter-spacing: 0.28em; margin-bottom: 18px; }
+  .cta-section p { color: #b5a294; font-size: 0.88rem; margin-bottom: 40px; }
+
+  footer { padding: 36px 0; text-align: center; font-size: 0.72rem; color: #7d6e61; letter-spacing: 0.2em; border-top: 1px solid rgba(207,164,134,0.15); }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.6rem; }
+    .concept-grid, .treatments, .voice { grid-template-columns: 1fr; }
+    section { padding: 70px 0; }
+    .offer-box { padding: 44px 26px; }
+  }
+  img { max-width: 100%; display: block; }
+  .hero { position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.26; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,16,15,0.55), rgba(20,16,15,0.85)); }
+  .hero-inner { position: relative; z-index: 1; }
+  .concept-photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0.92; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .access-grid table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .access-grid th, .access-grid td { padding: 18px 12px; border-bottom: 1px solid rgba(207,164,134,0.25); text-align: left; }
+  .access-grid th { width: 30%; color: #cfa486; font-weight: normal; letter-spacing: 0.2em; }
+  .map-wrap { border: 1px solid rgba(207,164,134,0.45); padding: 6px; }
+  .map-wrap iframe { width: 100%; height: 340px; border: 0; display: block; filter: grayscale(60%) contrast(0.95); }
+  @media (max-width: 768px) { .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">ÉCLAT</div>
+    <nav>
+      <ul>
+        <li><a href="#concept">CONCEPT</a></li>
+        <li><a href="#treatment">TREATMENT</a></li>
+        <li><a href="#offer">OFFER</a></li>
+        <li><a href="#reserve">RESERVE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=60" alt="" loading="lazy">
+  </div>
+  <div class="hero-inner">
+    <p class="en">ÉCLAT SPA & BEAUTY — TOKYO</p>
+    <h1>五感が、めざめる。</h1>
+    <p>ミシュラン星付きホテルのスパで経験を積んだセラピストによる、<br>完全会員制プライベートスパ。</p>
+    <a href="#reserve" class="cta">RESERVATION</a>
+  </div>
+</div>
+
+<section id="concept">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">CONCEPT</p>
+      <h2>美は、静寂の中で満ちる</h2>
+      <div class="line"></div>
+    </div>
+    <div class="concept-grid">
+      <div class="concept-photo">
+        <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=60" alt="静寂に満ちたスパの空間" loading="lazy">
+      </div>
+      <div>
+        <h3>扉を開けた瞬間から、<br>すべてが施術である。</h3>
+        <p>調香師が設計したオリジナルアロマ、肌に触れるリネンの質感、耳に届く水音。ÉCLATでは、空間のすべてがトリートメントの一部です。</p>
+        <p>フランス・グラースから直輸入するボタニカルオイルと、日本人の肌のために開発された独自メソッドが、あなた本来の輝きを呼び覚まします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="treatment">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SIGNATURE TREATMENT</p>
+      <h2>トリートメントメニュー</h2>
+      <div class="line"></div>
+    </div>
+    <div class="treatments">
+      <div class="treatment">
+        <p class="en">Le Visage</p>
+        <h3>エクラ・フェイシャル</h3>
+        <p>24金コラーゲンマスクと独自のリフトアップメソッドによる、最上級のフェイシャル。</p>
+        <p class="price">90min — ¥27,500</p>
+      </div>
+      <div class="treatment">
+        <p class="en">Le Corps</p>
+        <h3>ボタニカル・ボディスパ</h3>
+        <p>温めたボタニカルオイルで全身を包み込む、深いリラクゼーショントリートメント。</p>
+        <p class="price">120min — ¥38,500</p>
+      </div>
+      <div class="treatment">
+        <p class="en">Le Voyage</p>
+        <h3>エクラ・ジャーニー</h3>
+        <p>フェイシャルとボディ、ヘッドスパまでを網羅した、半日の美の旅路。</p>
+        <p class="price">180min — ¥60,500</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offer" class="offer-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">FIRST EXPERIENCE</p>
+      <h2>初回体験のご案内</h2>
+      <div class="line"></div>
+    </div>
+    <div class="offer-box">
+      <span class="label">MEMBERSHIP TRIAL</span>
+      <h3>エクラ・フェイシャル 90分</h3>
+      <p class="price">¥16,500<small>(税込)</small></p>
+      <p>ご入会をご検討の方に限り、シグネチャーフェイシャルを特別価格でご体験いただけます。ウェルカムシャンパン付き。</p>
+      <a href="#reserve" class="cta">体験を予約する</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="en">GUEST VOICES</p>
+      <h2>お客様の声</h2>
+      <div class="line"></div>
+    </div>
+    <div class="voice">
+      <div class="voice-card">
+        <p>海外の一流スパをいくつも訪れましたが、ここまで細部まで行き届いたおもてなしは初めてです。月に一度の、私だけの聖域になっています。</p>
+        <p class="who">40代・経営者</p>
+      </div>
+      <div class="voice-card">
+        <p>施術翌日の肌の透明感に、メイクの時間が変わりました。撮影前には必ずお願いしています。信頼できるセラピストに出会えたことに感謝です。</p>
+        <p class="who">30代・モデル</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">ACCESS</p>
+      <h2>アクセス</h2>
+      <div class="line"></div>
+    </div>
+    <div class="access-grid">
+      <div>
+        <table>
+          <tr><th>名称</th><td>ÉCLAT SPA & BEAUTY</td></tr>
+          <tr><th>住所</th><td>東京都港区南青山5-6-7 エクラメゾンB1F</td></tr>
+          <tr><th>営業時間</th><td>11:00〜21:00(完全予約制)</td></tr>
+          <tr><th>アクセス</th><td>東京メトロ「表参道駅」B3出口より徒歩3分</td></tr>
+        </table>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都港区南青山5-6-7&output=embed" loading="lazy" title="ÉCLAT SPA & BEAUTY 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>ご予約・お問い合わせ</h2>
+    <p>完全会員制・完全予約制でございます。<br>初回体験のご予約はWEBにて承っております。</p>
+    <a href="#" class="cta">RESERVATION</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ÉCLAT SPA & BEAUTY</p>
+</footer>
+
+</body>
+</html>

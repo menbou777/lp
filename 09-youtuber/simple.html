@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ASAKO / 暮らしの記録 | official site</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #3c3a38; line-height: 2; background: #fff; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: rgba(255,255,255,0.96); border-bottom: 1px solid #eee; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 62px; }
+  .logo { letter-spacing: 0.3em; font-size: 1rem; }
+  nav ul { display: flex; gap: 26px; list-style: none; font-size: 0.85rem; }
+  nav a:hover { color: #9a8c7a; }
+
+  .hero { padding: 130px 0; text-align: center; background: #f8f6f3; }
+  .hero .photo { width: 128px; height: 128px; border-radius: 50%; background: #e5dfd6; margin: 0 auto 28px; display: flex; align-items: center; justify-content: center; font-size: 2.6rem; }
+  .hero h1 { font-size: 1.7rem; font-weight: 500; letter-spacing: 0.25em; margin-bottom: 12px; }
+  .hero .en { font-size: 0.75rem; letter-spacing: 0.4em; color: #9a8c7a; margin-bottom: 24px; }
+  .hero p { color: #7d756a; font-size: 0.92rem; margin-bottom: 36px; }
+  .cta { display: inline-block; background: #3c3a38; color: #fff; padding: 14px 48px; letter-spacing: 0.15em; font-size: 0.88rem; transition: opacity .2s; }
+  .cta:hover { opacity: .8; }
+  .stats { display: flex; justify-content: center; gap: 48px; margin-top: 44px; }
+  .stat .value { font-size: 1.5rem; font-weight: bold; }
+  .stat .label { font-size: 0.75rem; color: #9a8c7a; letter-spacing: 0.2em; }
+
+  section { padding: 84px 0; }
+  .section-title { text-align: center; font-size: 1.25rem; letter-spacing: 0.35em; font-weight: 500; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #c4bab0; font-size: 0.72rem; letter-spacing: 0.4em; margin-bottom: 48px; }
+
+  .about { max-width: 620px; margin: 0 auto; font-size: 0.92rem; color: #5c564e; }
+  .about p { margin-bottom: 16px; }
+
+  .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .video { border: 1px solid #eee; }
+  .video .thumb { aspect-ratio: 16/9; background: #ece7e0; display: flex; align-items: center; justify-content: center; font-size: 2rem; }
+  .video .body { padding: 18px 20px; }
+  .video h3 { font-size: 0.92rem; font-weight: 600; margin-bottom: 6px; }
+  .video p { font-size: 0.78rem; color: #9a8c7a; }
+
+  .schedule { background: #f8f6f3; }
+  .schedule-list { max-width: 560px; margin: 0 auto; }
+  .schedule-item { display: flex; justify-content: space-between; padding: 18px 8px; border-bottom: 1px solid #e5dfd6; font-size: 0.92rem; }
+  .schedule-item .day { color: #9a8c7a; letter-spacing: 0.1em; }
+
+  .links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .link-btn { border: 1px solid #3c3a38; padding: 13px 38px; font-size: 0.85rem; letter-spacing: 0.15em; transition: all .2s; }
+  .link-btn:hover { background: #3c3a38; color: #fff; }
+
+  .contact { text-align: center; background: #3c3a38; color: #f8f6f3; padding: 90px 0; }
+  .contact h2 { font-size: 1.2rem; letter-spacing: 0.35em; margin-bottom: 18px; }
+  .contact p { font-size: 0.88rem; color: #b5aea3; margin-bottom: 34px; }
+  .cta-white { display: inline-block; background: #f8f6f3; color: #3c3a38; padding: 14px 48px; letter-spacing: 0.15em; font-size: 0.88rem; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 0.75rem; color: #b5aea3; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero { padding: 80px 0; }
+    .videos { grid-template-columns: 1fr; }
+    .stats { gap: 28px; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">ASAKO</div>
+    <nav>
+      <ul>
+        <li><a href="#about">プロフィール</a></li>
+        <li><a href="#videos">動画</a></li>
+        <li><a href="#contact">お仕事のご依頼</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <div class="photo">🌿</div>
+    <h1>暮らしの記録</h1>
+    <p class="en">ASAKO — LIFESTYLE VLOG</p>
+    <p>ていねいすぎない、ふつうの暮らし。<br>朝ごはん、掃除、そして小さな庭のこと。</p>
+    <a href="#" class="cta">チャンネルを見る</a>
+    <div class="stats">
+      <div class="stat"><div class="value">32万人</div><div class="label">SUBSCRIBERS</div></div>
+      <div class="stat"><div class="value">280本</div><div class="label">VIDEOS</div></div>
+      <div class="stat"><div class="value">週2回</div><div class="label">UPLOADS</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <h2 class="section-title">プロフィール</h2>
+    <p class="section-sub">ABOUT</p>
+    <div class="about">
+      <p>はじめまして、ASAKOです。築40年の古い一軒家で、夫とねこ2匹と暮らしています。</p>
+      <p>「ていねいな暮らし」に憧れて挫折した経験から、「ていねいすぎない暮らし」をテーマに動画を作りはじめました。手を抜くところは抜く、こだわるところはこだわる。そんな等身大の毎日を、週2回のペースで記録しています。</p>
+      <p>好きなもの:朝の白湯、無印良品、直感で買う古道具。</p>
+    </div>
+  </div>
+</section>
+
+<section id="videos">
+  <div class="container">
+    <h2 class="section-title">人気の動画</h2>
+    <p class="section-sub">VIDEOS</p>
+    <div class="videos">
+      <div class="video">
+        <div class="thumb">🍳</div>
+        <div class="body">
+          <h3>【ルーティン】いつもの平日の朝。5:30に起きてやること</h3>
+          <p>128万回再生</p>
+        </div>
+      </div>
+      <div class="video">
+        <div class="thumb">🧺</div>
+        <div class="body">
+          <h3>【大掃除】年末にやらない代わりに、毎月やっていること</h3>
+          <p>96万回再生</p>
+        </div>
+      </div>
+      <div class="video">
+        <div class="thumb">🌱</div>
+        <div class="body">
+          <h3>【庭仕事】小さな庭に、小さな畑をつくった一年の記録</h3>
+          <p>84万回再生</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule">
+  <div class="container">
+    <h2 class="section-title">更新スケジュール</h2>
+    <p class="section-sub">SCHEDULE</p>
+    <div class="schedule-list">
+      <div class="schedule-item"><span class="day">毎週水曜 18:00</span><span>暮らしのVLOG</span></div>
+      <div class="schedule-item"><span class="day">毎週土曜 8:00</span><span>朝のルーティン・料理</span></div>
+      <div class="schedule-item"><span class="day">月1回</span><span>愛用品の紹介・購入品</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">リンク</h2>
+    <p class="section-sub">LINKS</p>
+    <div class="links">
+      <a href="#" class="link-btn">YouTube</a>
+      <a href="#" class="link-btn">Instagram</a>
+      <a href="#" class="link-btn">X (Twitter)</a>
+      <a href="#" class="link-btn">著書について</a>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>お仕事のご依頼</h2>
+    <p>タイアップ動画・執筆・イベント出演など、お気軽にご相談ください。<br>暮らしに関わる商品のご紹介は、実際に使って良かったものだけをお受けしています。</p>
+    <a href="#" class="cta-white">お問い合わせフォーム</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ASAKO / 暮らしの記録</p>
+</footer>
+
+</body>
+</html>

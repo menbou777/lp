@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>青山フォレスト美容外科 | 誠実な美容医療を、適正価格で。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #333; line-height: 1.9; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; border-bottom: 1px solid #eee; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { font-weight: bold; color: #2e5e4e; }
+  nav ul { display: flex; gap: 26px; list-style: none; font-size: 0.88rem; }
+  nav a:hover { color: #2e5e4e; }
+  .reserve-btn { background: #2e5e4e; color: #fff; padding: 10px 24px; border-radius: 4px; font-size: 0.88rem; }
+
+  .hero { background: #f2f6f4; padding: 110px 0; text-align: center; }
+  .hero .tag { color: #2e5e4e; font-size: 0.8rem; letter-spacing: 0.3em; margin-bottom: 20px; }
+  .hero h1 { font-size: 2.1rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 0.05em; }
+  .hero p { color: #666; margin-bottom: 36px; }
+  .cta { display: inline-block; background: #2e5e4e; color: #fff; padding: 16px 50px; border-radius: 4px; font-weight: bold; transition: opacity .2s; }
+  .cta:hover { opacity: .85; }
+  .hero small { display: block; margin-top: 14px; font-size: 0.8rem; color: #999; }
+
+  section { padding: 84px 0; }
+  .section-title { text-align: center; font-size: 1.55rem; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #9ab3a9; font-size: 0.78rem; letter-spacing: 0.3em; margin-bottom: 48px; }
+
+  .policy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .policy-item { border-top: 2px solid #2e5e4e; padding: 28px 24px 0; }
+  .policy-item h3 { font-size: 1.05rem; margin-bottom: 12px; }
+  .policy-item p { font-size: 0.88rem; color: #666; }
+
+  .menu-section { background: #f8faf9; }
+  .menu-table { max-width: 760px; margin: 0 auto; width: 100%; border-collapse: collapse; background: #fff; }
+  .menu-table th, .menu-table td { border: 1px solid #e2e8e5; padding: 16px 20px; font-size: 0.92rem; text-align: left; }
+  .menu-table thead th { background: #2e5e4e; color: #fff; font-weight: normal; letter-spacing: 0.1em; }
+  .menu-table td:last-child { text-align: right; color: #2e5e4e; font-weight: bold; white-space: nowrap; }
+  .menu-note { max-width: 760px; margin: 20px auto 0; font-size: 0.8rem; color: #999; }
+
+  .doctor-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: center; max-width: 880px; margin: 0 auto; }
+  .doctor-photo { aspect-ratio: 3/4; background: #e8efec; display: flex; align-items: center; justify-content: center; color: #9ab3a9; font-size: 0.85rem; letter-spacing: 0.2em; }
+  .doctor-grid h3 { font-size: 1.25rem; margin-bottom: 6px; }
+  .doctor-grid .title { color: #2e5e4e; font-size: 0.82rem; margin-bottom: 20px; }
+  .doctor-grid p { font-size: 0.9rem; color: #666; margin-bottom: 12px; }
+
+  .risk { background: #f8faf9; border: 1px solid #e2e8e5; border-radius: 6px; max-width: 760px; margin: 0 auto; padding: 32px 36px; }
+  .risk h3 { font-size: 1rem; color: #2e5e4e; margin-bottom: 12px; }
+  .risk p { font-size: 0.85rem; color: #666; }
+
+  .cta-section { background: #2e5e4e; color: #fff; text-align: center; padding: 90px 0; }
+  .cta-section h2 { font-size: 1.5rem; margin-bottom: 16px; }
+  .cta-section p { opacity: .85; font-size: 0.92rem; margin-bottom: 34px; }
+  .cta-white { display: inline-block; background: #fff; color: #2e5e4e; padding: 16px 50px; border-radius: 4px; font-weight: bold; }
+
+  footer { padding: 32px 0; text-align: center; font-size: 0.78rem; color: #999; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.5rem; }
+    .policy, .doctor-grid { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+    .menu-table th, .menu-table td { padding: 12px; }
+  }
+  img { max-width: 100%; display: block; }
+  .doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .gallery figure { overflow: hidden; border-radius: 6px; background: #e8efec; }
+  .gallery img { width: 100%; height: 220px; object-fit: cover; }
+  .gallery figcaption { font-size: 0.8rem; color: #7a938a; text-align: center; padding: 10px 0 0; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+  .access-grid table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .access-grid th, .access-grid td { border: 1px solid #e2e8e5; padding: 12px; text-align: left; }
+  .access-grid th { background: #f2f6f4; font-weight: normal; width: 30%; }
+  .map-wrap { border-radius: 6px; overflow: hidden; border: 1px solid #e2e8e5; }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+  @media (max-width: 768px) { .gallery, .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">青山フォレスト美容外科</div>
+    <nav>
+      <ul>
+        <li><a href="#policy">診療方針</a></li>
+        <li><a href="#menu">料金</a></li>
+        <li><a href="#doctor">医師紹介</a></li>
+      </ul>
+    </nav>
+    <a href="#reserve" class="reserve-btn">無料カウンセリング</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <p class="tag">AOYAMA FOREST CLINIC</p>
+    <h1>誠実な美容医療を、適正価格で。</h1>
+    <p>過度な勧誘も、不要な施術のご提案もいたしません。<br>医学的根拠に基づいた治療だけを、わかりやすい料金でご提供します。</p>
+    <a href="#reserve" class="cta">無料カウンセリングを予約</a>
+    <small>※カウンセリングのみのご来院も歓迎しています</small>
+  </div>
+</div>
+
+<section id="policy">
+  <div class="container">
+    <h2 class="section-title">私たちの診療方針</h2>
+    <p class="section-sub">POLICY</p>
+    <div class="policy">
+      <div class="policy-item">
+        <h3>1. 押し売りをしない</h3>
+        <p>カウンセリング担当は医師本人。契約を急がせることや、当日施術を勧めることはありません。一度お持ち帰りいただき、じっくりご検討ください。</p>
+      </div>
+      <div class="policy-item">
+        <h3>2. リスクを必ず説明する</h3>
+        <p>どんな施術にもリスクとダウンタイムがあります。メリットだけでなく、起こりうる合併症と対処法まで必ずご説明します。</p>
+      </div>
+      <div class="policy-item">
+        <h3>3. 適正価格を明示する</h3>
+        <p>表示価格以外の費用は一切かかりません。麻酔代・薬代・アフターケア代まで含めた総額を、事前に書面でお渡しします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">院内のご案内</h2>
+    <p class="section-sub">CLINIC</p>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=60" alt="受付・待合スペース" loading="lazy"><figcaption>受付・待合スペース</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=60" alt="カウンセリングルーム" loading="lazy"><figcaption>カウンセリングルーム</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&w=800&q=60" alt="施術室" loading="lazy"><figcaption>施術室</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-section">
+  <div class="container">
+    <h2 class="section-title">料金のご案内</h2>
+    <p class="section-sub">PRICE</p>
+    <table class="menu-table">
+      <thead>
+        <tr><th>施術内容</th><th>料金(税込・総額)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>二重埋没法(両目・2点留め)</td><td>¥66,000</td></tr>
+        <tr><td>ヒアルロン酸注入(1cc)</td><td>¥49,500</td></tr>
+        <tr><td>ボツリヌス注射(額・眉間・目尻)</td><td>¥33,000</td></tr>
+        <tr><td>シミ取りレーザー(1cm未満・1個)</td><td>¥11,000</td></tr>
+        <tr><td>医療脱毛(全身5回コース)</td><td>¥198,000</td></tr>
+      </tbody>
+    </table>
+    <p class="menu-note">※上記は麻酔・薬・アフターケアを含む総額です。追加費用は発生しません。<br>※未成年の方の施術には保護者の同意が必要です。</p>
+  </div>
+</section>
+
+<section id="doctor">
+  <div class="container">
+    <h2 class="section-title">医師紹介</h2>
+    <p class="section-sub">DOCTOR</p>
+    <div class="doctor-grid">
+      <div class="doctor-photo">
+        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=800&q=60" alt="院長 森田 誠一" loading="lazy">
+      </div>
+      <div>
+        <h3>森田 誠一</h3>
+        <p class="title">院長 / 日本形成外科学会認定 形成外科専門医</p>
+        <p>大学病院形成外科にて15年間、外傷・再建手術に従事した後、美容外科の道へ。「美容医療は医療である」を信条に、安全性を最優先した診療を行っています。</p>
+        <p>執刀はすべて院長が担当します。カウンセリングから術後の経過観察まで、一貫して同じ医師が診察いたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="risk">
+      <h3>施術のリスクについて</h3>
+      <p>すべての美容医療には、腫れ・内出血・感染・左右差などのリスクがあります。当院ではカウンセリング時に施術ごとのリスク・副作用・ダウンタイムを文書でご説明し、ご同意いただいた上で施術を行います。万一の際の再診・処置は無料で対応いたします。</p>
+    </div>
+  </div>
+</section>
+
+<section id="access" style="background:#f8faf9;">
+  <div class="container">
+    <h2 class="section-title">アクセス</h2>
+    <p class="section-sub">ACCESS</p>
+    <div class="access-grid">
+      <table>
+        <tr><th>医院名</th><td>青山フォレスト美容外科</td></tr>
+        <tr><th>住所</th><td>東京都港区北青山3-5-8 フォレストビル4F</td></tr>
+        <tr><th>診療時間</th><td>10:00〜19:00(完全予約制)</td></tr>
+        <tr><th>休診日</th><td>水曜</td></tr>
+        <tr><th>アクセス</th><td>東京メトロ「表参道駅」A1出口より徒歩2分</td></tr>
+      </table>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都港区北青山3-5-8&output=embed" loading="lazy" title="青山フォレスト美容外科 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>まずは、医師に相談してみませんか。</h2>
+    <p>カウンセリングは無料です。相談だけで帰っていただいて構いません。</p>
+    <a href="#" class="cta-white">無料カウンセリングを予約する</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 青山フォレスト美容外科 | 医療広告ガイドライン遵守</p>
+</footer>
+
+</body>
+</html>

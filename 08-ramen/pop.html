@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ばくだんラーメン ドカ盛り軒 | 腹ペコよ、集まれ!!</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", sans-serif; color: #2e2415; line-height: 1.85; background: #fff9e8; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #f7b500; z-index: 100; box-shadow: 0 3px 0 #d69c00; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+  .logo { font-size: 1.35rem; font-weight: 900; color: #2e2415; }
+  .map-btn { background: #e02d2d; color: #fff; padding: 10px 24px; border-radius: 999px; font-weight: 900; box-shadow: 0 3px 0 #a81f1f; }
+
+  .hero { background: #e02d2d; color: #fff; padding: 84px 0 96px; text-align: center; position: relative; overflow: hidden; }
+  .deco { position: absolute; font-size: 3.2rem; opacity: .8; }
+  .d1 { top: 8%; left: 6%; transform: rotate(-18deg); }
+  .d2 { top: 20%; right: 7%; transform: rotate(15deg); }
+  .d3 { bottom: 10%; left: 11%; transform: rotate(8deg); }
+  .d4 { bottom: 16%; right: 12%; transform: rotate(-10deg); }
+  .hero .badge { display: inline-block; background: #f7b500; color: #2e2415; padding: 8px 28px; border-radius: 999px; font-weight: 900; margin-bottom: 20px; transform: rotate(-3deg); font-size: 1.05rem; box-shadow: 0 3px 0 #d69c00; }
+  .hero h1 { font-size: 3rem; font-weight: 900; margin-bottom: 12px; text-shadow: 4px 4px 0 #a81f1f; line-height: 1.4; }
+  .hero p { font-weight: 900; font-size: 1.1rem; margin-bottom: 30px; }
+  .cta { display: inline-block; background: #f7b500; color: #2e2415; padding: 18px 56px; border-radius: 999px; font-weight: 900; font-size: 1.2rem; box-shadow: 0 6px 0 #d69c00; transition: transform .15s; }
+  .cta:hover { transform: translateY(3px); }
+
+  section { padding: 72px 0; }
+  .section-title { text-align: center; font-size: 1.8rem; font-weight: 900; color: #e02d2d; margin-bottom: 42px; }
+
+  .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .menu-card { background: #fff; border-radius: 20px; overflow: hidden; border: 4px solid #2e2415; box-shadow: 8px 8px 0 #f7b500; }
+  .menu-card .img { height: 140px; display: flex; align-items: center; justify-content: center; font-size: 4rem; background: linear-gradient(135deg, #ffe08a, #ffc93c); }
+  .menu-card .body { padding: 20px 22px 24px; text-align: center; }
+  .menu-card h3 { font-weight: 900; font-size: 1.15rem; margin-bottom: 4px; }
+  .menu-card .price { color: #e02d2d; font-weight: 900; font-size: 1.5rem; }
+  .menu-card p { font-size: 0.85rem; margin-top: 8px; font-weight: bold; }
+  .menu-card .tag { display: inline-block; background: #e02d2d; color: #fff; font-size: 0.75rem; font-weight: 900; padding: 2px 12px; border-radius: 999px; margin-bottom: 8px; }
+
+  .challenge { background: #2e2415; color: #fff9e8; text-align: center; border-radius: 40px; margin: 0 20px; position: relative; }
+  .challenge h2 { font-size: 1.9rem; font-weight: 900; color: #f7b500; margin-bottom: 16px; }
+  .challenge .big { font-size: 2.6rem; font-weight: 900; color: #fff; margin-bottom: 8px; }
+  .challenge p { font-weight: bold; }
+  .challenge .rule { max-width: 460px; margin: 20px auto 0; background: rgba(255,255,255,0.1); border-radius: 16px; padding: 18px 24px; font-size: 0.88rem; text-align: left; }
+  .challenge .rule li { list-style: none; padding: 3px 0; }
+  .challenge .rule li::before { content: "🔥 "; }
+
+  .toppings { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; }
+  .topping { background: #fff; border: 3px solid #f7b500; padding: 12px 24px; border-radius: 999px; font-weight: 900; font-size: 0.95rem; box-shadow: 0 4px 0 #e8ce8a; }
+
+  .sns { text-align: center; background: #f7b500; border-radius: 40px; margin: 0 20px; }
+  .sns h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 12px; }
+  .sns p { font-weight: bold; margin-bottom: 22px; }
+  .sns .tag-big { font-size: 1.5rem; font-weight: 900; color: #e02d2d; background: #fff; display: inline-block; padding: 12px 32px; border-radius: 999px; box-shadow: 0 5px 0 #d69c00; }
+
+  .info-band { text-align: center; }
+  .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; max-width: 820px; margin: 0 auto; }
+  .info-card { background: #fff; border-radius: 20px; border: 3px solid #2e2415; padding: 24px 20px; }
+  .info-card .label { font-weight: 900; color: #e02d2d; margin-bottom: 4px; }
+  .info-card p { font-weight: bold; font-size: 0.92rem; }
+
+  footer { padding: 28px 0; text-align: center; font-size: 0.8rem; color: #8a7b55; background: #fff; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.9rem; }
+    .menu-grid, .info-cards { grid-template-columns: 1fr; }
+    section { padding: 52px 0; }
+    .deco { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">🍜 ドカ盛り軒</div>
+    <a href="#info" class="map-btn">📍 場所はココ</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="deco d1">🍜</span>
+  <span class="deco d2">🔥</span>
+  <span class="deco d3">🥟</span>
+  <span class="deco d4">💥</span>
+  <div class="container">
+    <div class="badge">麺・野菜 増量無料!!</div>
+    <h1>腹ペコよ、<br>集まれ!!</h1>
+    <p>ガッツリ濃厚豚骨×ドカ盛り野菜=優勝🏆</p>
+    <a href="#menu" class="cta">メニューを見る ▶</a>
+  </div>
+</div>
+
+<section id="menu">
+  <div class="container">
+    <h2 class="section-title">🍜 ドカ盛りメニュー</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="img">🍜</div>
+        <div class="body">
+          <span class="tag">まずはコレ!</span>
+          <h3>ばくだんラーメン</h3>
+          <p class="price">950円</p>
+          <p>濃厚豚骨×極太麺×山盛り野菜。ニンニク入れますか?が合言葉!</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="img">🧀</div>
+        <div class="body">
+          <span class="tag">SNS映え No.1</span>
+          <h3>チーズばくだん</h3>
+          <p class="price">1,100円</p>
+          <p>チーズの滝が麺に降り注ぐ!混ぜれば混ぜるほどウマい背徳の一杯。</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="img">🌶️</div>
+        <div class="body">
+          <span class="tag">辛党ホイホイ</span>
+          <h3>地獄の赤ばくだん</h3>
+          <p class="price">1,050円</p>
+          <p>辛さ1〜10倍まで選べる激辛豚骨。5倍から先は自己責任で!笑</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="challenge">
+  <div class="container">
+    <h2>💥 デカ盛りチャレンジ 💥</h2>
+    <p class="big">総重量2kg「メガばくだん」</p>
+    <p>30分以内に完食で <b>無料</b> + 殿堂入り写真を店内に掲示!!</p>
+    <ul class="rule">
+      <li>挑戦料 1,800円(完食で全額返金!)</li>
+      <li>制限時間30分・お残し厳禁</li>
+      <li>歴代完食者:現在47名</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🧄 無料トッピングで自分流!</h2>
+    <div class="toppings">
+      <span class="topping">ニンニク</span>
+      <span class="topping">背脂</span>
+      <span class="topping">野菜マシ</span>
+      <span class="topping">麺カタメ</span>
+      <span class="topping">味コイメ</span>
+      <span class="topping">辛モヤシ</span>
+      <span class="topping">紅しょうが</span>
+    </div>
+  </div>
+</section>
+
+<section class="sns">
+  <div class="container">
+    <h2>📸 撮ったら投稿!味玉サービス!</h2>
+    <p>ハッシュタグを付けて投稿→レジで見せるだけ!</p>
+    <span class="tag-big">#ドカ盛り軒</span>
+  </div>
+</section>
+
+<section id="info" class="info-band">
+  <div class="container">
+    <h2 class="section-title">📍 お店はこちら</h2>
+    <div class="info-cards">
+      <div class="info-card">
+        <p class="label">場所</p>
+        <p>ドカ盛り大学前駅<br>徒歩30秒(黄色い看板!)</p>
+      </div>
+      <div class="info-card">
+        <p class="label">営業時間</p>
+        <p>11:00〜23:00<br>年中無休!</p>
+      </div>
+      <div class="info-card">
+        <p class="label">支払い</p>
+        <p>券売機(現金・PayPay・<br>交通系IC対応)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ばくだんラーメン ドカ盛り軒</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROYAL ESSENCE | 極上の滋養、黄金の一滴</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #121008; color: #ece5d3; line-height: 2; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(18,16,8,0.92); border-bottom: 1px solid rgba(212,175,55,0.3); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .logo { letter-spacing: 0.4em; color: #d4af37; font-size: 1rem; }
+  .buy-btn { border: 1px solid #d4af37; color: #d4af37; padding: 10px 28px; font-size: 0.8rem; letter-spacing: 0.2em; transition: all .3s; }
+  .buy-btn:hover { background: #d4af37; color: #121008; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at 50% 20%, #2b2410 0%, #121008 65%); }
+  .hero-inner { padding: 120px 24px 80px; }
+  .hero .en { font-size: 0.8rem; letter-spacing: 0.7em; color: #d4af37; margin-bottom: 30px; }
+  .hero h1 { font-size: 2.7rem; font-weight: 500; letter-spacing: 0.18em; margin-bottom: 26px; }
+  .hero p { color: #b3a88c; font-size: 0.95rem; margin-bottom: 50px; }
+  .cta { display: inline-block; background: linear-gradient(135deg, #d4af37, #f2d472, #d4af37); color: #121008; padding: 18px 68px; letter-spacing: 0.25em; font-weight: bold; font-size: 0.9rem; }
+  .cta:hover { opacity: .9; }
+
+  section { padding: 110px 0; }
+  .section-head { text-align: center; margin-bottom: 64px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #d4af37; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.7rem; font-weight: 500; letter-spacing: 0.2em; }
+  .line { width: 48px; height: 1px; background: #d4af37; margin: 22px auto 0; }
+
+  .story { max-width: 720px; margin: 0 auto; text-align: center; font-size: 0.95rem; color: #cfc6ac; }
+  .story .lead { font-size: 1.25rem; color: #ece5d3; letter-spacing: 0.15em; margin-bottom: 32px; }
+
+  .ingredients { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: rgba(212,175,55,0.3); border: 1px solid rgba(212,175,55,0.3); }
+  .ing { background: #121008; padding: 52px 32px; text-align: center; }
+  .ing .en { font-style: italic; color: #d4af37; margin-bottom: 16px; font-size: 0.85rem; letter-spacing: 0.15em; }
+  .ing h3 { font-size: 1.1rem; letter-spacing: 0.15em; margin-bottom: 16px; }
+  .ing p { font-size: 0.85rem; color: #b3a88c; }
+
+  .price-section { background: #1a1710; border-top: 1px solid rgba(212,175,55,0.2); border-bottom: 1px solid rgba(212,175,55,0.2); text-align: center; }
+  .price-box { max-width: 560px; margin: 0 auto; border: 1px solid rgba(212,175,55,0.45); padding: 56px 44px; position: relative; }
+  .price-box::before { content: ""; position: absolute; inset: 6px; border: 1px solid rgba(212,175,55,0.25); pointer-events: none; }
+  .price-box .label { color: #d4af37; letter-spacing: 0.4em; font-size: 0.8rem; margin-bottom: 24px; display: block; }
+  .price-box .name { font-size: 1.3rem; letter-spacing: 0.2em; margin-bottom: 20px; }
+  .price-box .price { font-size: 2.4rem; color: #d4af37; letter-spacing: 0.1em; margin-bottom: 8px; }
+  .price-box .note { font-size: 0.8rem; color: #b3a88c; margin-bottom: 36px; }
+
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .voice-card { border-left: 2px solid #d4af37; padding: 8px 0 8px 28px; }
+  .voice-card p { font-size: 0.9rem; color: #cfc6ac; margin-bottom: 12px; }
+  .voice-card .who { font-size: 0.78rem; color: #d4af37; letter-spacing: 0.2em; }
+
+  footer { padding: 40px 0; text-align: center; font-size: 0.72rem; color: #7a715a; letter-spacing: 0.15em; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.7rem; }
+    .ingredients { grid-template-columns: 1fr; }
+    .voice { grid-template-columns: 1fr; }
+    section { padding: 72px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .hero { position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.22; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(18,16,8,0.55), rgba(18,16,8,0.85)); }
+  .hero-inner { position: relative; z-index: 1; }
+  .story-photo { max-width: 760px; margin: 56px auto 0; border: 1px solid rgba(212,175,55,0.4); padding: 6px; }
+  .story-photo img { width: 100%; height: 340px; object-fit: cover; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">ROYAL ESSENCE</div>
+    <a href="#price" class="buy-btn">PURCHASE</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?auto=format&fit=crop&w=1600&q=60" alt="" loading="lazy">
+  </div>
+  <div class="hero-inner">
+    <p class="en">ROYAL ESSENCE — SINCE 1968</p>
+    <h1>極上の滋養、<br>黄金の一滴。</h1>
+    <p>厳選された高麗人参と国産すっぽん、そして熟成黒にんにく。<br>半世紀の研究が生んだ、大人のための滋養エッセンス。</p>
+    <a href="#price" class="cta">数量限定にて承ります</a>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="en">PHILOSOPHY</p>
+      <h2>妥協なき、素材の追求</h2>
+      <div class="line"></div>
+    </div>
+    <div class="story">
+      <p class="lead">「本物だけを、口にしていただきたい。」</p>
+      <p>創業以来、私たちは一切の妥協を許しませんでした。素材の産地へ足を運び、生産者と語らい、納得したものだけを仕入れる。手間を惜しまぬ伝統製法で、じっくりと三年。ROYAL ESSENCEは、そうして生まれる年間わずか一万本の逸品です。</p>
+      <div class="story-photo">
+        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=60" alt="伝統製法へのこだわり" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="en">INGREDIENTS</p>
+      <h2>三つの厳選素材</h2>
+      <div class="line"></div>
+    </div>
+    <div class="ingredients">
+      <div class="ing">
+        <p class="en">Korean Ginseng</p>
+        <h3>六年根 高麗人参</h3>
+        <p>最も滋養が満ちるとされる六年根のみを使用。サポニンを豊富に含む最高等級「天参」を厳選。</p>
+      </div>
+      <div class="ing">
+        <p class="en">Soft-shelled Turtle</p>
+        <h3>国産 はがくれすっぽん</h3>
+        <p>佐賀の清流で三年かけて育てられた高級すっぽんを、まるごと丁寧に煮出しました。</p>
+      </div>
+      <div class="ing">
+        <p class="en">Black Garlic</p>
+        <h3>熟成 黒にんにく</h3>
+        <p>青森県産福地ホワイト六片を90日間熟成。ポリフェノールは生にんにくの約10倍に。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="price" class="price-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SPECIAL OFFER</p>
+      <h2>ご優待のご案内</h2>
+      <div class="line"></div>
+    </div>
+    <div class="price-box">
+      <span class="label">初回限定・特別価格</span>
+      <p class="name">ROYAL ESSENCE 30日分</p>
+      <p class="price">¥5,980<span style="font-size:0.9rem">(税込)</span></p>
+      <p class="note">通常価格 ¥12,800 / 送料無料・特製桐箱入り<br>二回目以降も優待価格 ¥9,800 にてお届けいたします。</p>
+      <a href="#" class="cta">ご優待価格で申し込む</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <p class="en">TESTIMONIALS</p>
+      <h2>ご愛用者様の声</h2>
+      <div class="line"></div>
+    </div>
+    <div class="voice">
+      <div class="voice-card">
+        <p>50代に入ってから朝が変わりました。贈答用にも毎年利用しています。桐箱の佇まいも素晴らしく、父も大変喜んでおりました。</p>
+        <p class="who">58歳・会社経営</p>
+      </div>
+      <div class="voice-card">
+        <p>様々な健康食品を試してきましたが、続いているのはこれだけ。夕方の会議でも集中が途切れない毎日に感謝しています。</p>
+        <p class="who">62歳・医師</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>本品は医薬品ではありません。体質に合わない場合はご使用をお控えください。<br>© 2026 ROYAL ESSENCE Co., Ltd.</p>
+</footer>
+
+</body>
+</html>

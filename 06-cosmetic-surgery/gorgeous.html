@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CLINIQUE LUMIÈRE | 美の頂へ、確かな医療を。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #fbf9f6; color: #3a352f; line-height: 2.1; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(251,249,246,0.94); border-bottom: 1px solid #e5dcCE; backdrop-filter: blur(6px); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 78px; }
+  .logo { letter-spacing: 0.4em; color: #9d8248; font-size: 1.05rem; }
+  nav ul { display: flex; gap: 36px; list-style: none; font-size: 0.78rem; letter-spacing: 0.25em; color: #6e6657; }
+  nav a:hover { color: #9d8248; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(115deg, #fbf9f6 45%, #efe7d8 100%); }
+  .hero-inner { padding: 150px 0 100px; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.65em; color: #9d8248; margin-bottom: 28px; }
+  .hero h1 { font-size: 2.7rem; font-weight: 500; letter-spacing: 0.15em; line-height: 1.8; margin-bottom: 26px; color: #2e2a24; }
+  .hero p { color: #7d7462; font-size: 0.95rem; margin-bottom: 46px; max-width: 540px; }
+  .cta { display: inline-block; background: #9d8248; color: #fff; padding: 18px 62px; letter-spacing: 0.3em; font-size: 0.85rem; transition: opacity .3s; }
+  .cta:hover { opacity: .85; }
+  .cta.outline { background: transparent; border: 1px solid #9d8248; color: #9d8248; margin-left: 14px; }
+
+  section { padding: 108px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #9d8248; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.65rem; font-weight: 500; letter-spacing: 0.22em; color: #2e2a24; }
+  .line { width: 46px; height: 1px; background: #9d8248; margin: 22px auto 0; }
+
+  .promises { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+  .promise .num { font-size: 2rem; color: #9d8248; font-style: italic; margin-bottom: 14px; }
+  .promise h3 { font-size: 1.05rem; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .promise p { font-size: 0.86rem; color: #7d7462; }
+
+  .treatment-section { background: #f3eee4; }
+  .treatments { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .treatment { background: #fff; border: 1px solid #e5dcce; padding: 44px 40px; }
+  .treatment .en { font-style: italic; color: #9d8248; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 14px; }
+  .treatment h3 { font-size: 1.15rem; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .treatment p { font-size: 0.86rem; color: #7d7462; margin-bottom: 18px; }
+  .treatment .price { color: #9d8248; letter-spacing: 0.08em; border-top: 1px solid #e5dcce; padding-top: 16px; }
+
+  .doctor { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+  .doctor-photo { aspect-ratio: 3/4; background: linear-gradient(160deg, #e5dcce, #d4c7b0); display: flex; align-items: center; justify-content: center; color: #9d8248; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .doctor h3 { font-size: 1.4rem; letter-spacing: 0.2em; margin-bottom: 6px; }
+  .doctor .title { color: #9d8248; font-size: 0.78rem; letter-spacing: 0.25em; margin-bottom: 22px; }
+  .doctor p { font-size: 0.9rem; color: #7d7462; margin-bottom: 14px; }
+
+  .risk-note { max-width: 760px; margin: 0 auto; border: 1px solid #e5dcce; background: #fff; padding: 36px 42px; }
+  .risk-note h3 { font-size: 0.95rem; letter-spacing: 0.2em; color: #9d8248; margin-bottom: 12px; }
+  .risk-note p { font-size: 0.83rem; color: #7d7462; }
+
+  .cta-section { background: linear-gradient(115deg, #2e2a24, #4a4232); color: #f3eee4; text-align: center; }
+  .cta-section h2 { font-size: 1.55rem; letter-spacing: 0.25em; font-weight: 500; margin-bottom: 18px; }
+  .cta-section p { color: #c2b7a0; font-size: 0.9rem; margin-bottom: 40px; }
+  .cta-gold { display: inline-block; background: #9d8248; color: #fff; padding: 18px 62px; letter-spacing: 0.3em; font-size: 0.85rem; }
+
+  footer { padding: 36px 0; text-align: center; font-size: 0.72rem; color: #a89a80; letter-spacing: 0.18em; border-top: 1px solid #e5dcce; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.7rem; }
+    .promises, .treatments, .doctor { grid-template-columns: 1fr; }
+    section { padding: 70px 0; }
+    .cta.outline { margin: 14px 0 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .hero { position: relative; overflow: hidden; }
+  .hero-bg { position: absolute; inset: 0; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.18; }
+  .hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(251,249,246,0.94) 40%, rgba(251,249,246,0.6)); }
+  .hero-inner { position: relative; z-index: 1; }
+  .doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+  .access-grid table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .access-grid th, .access-grid td { padding: 18px 12px; border-bottom: 1px solid #e5dcce; text-align: left; }
+  .access-grid th { width: 30%; color: #9d8248; font-weight: normal; letter-spacing: 0.2em; }
+  .map-wrap { border: 1px solid #cdbf9a; padding: 6px; background: #fff; }
+  .map-wrap iframe { width: 100%; height: 340px; border: 0; display: block; filter: grayscale(30%); }
+  @media (max-width: 768px) { .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">CLINIQUE LUMIÈRE</div>
+    <nav>
+      <ul>
+        <li><a href="#promise">PROMISE</a></li>
+        <li><a href="#treatment">TREATMENT</a></li>
+        <li><a href="#doctor">DOCTOR</a></li>
+        <li><a href="#reserve">RESERVE</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=60" alt="" loading="lazy">
+  </div>
+  <div class="container hero-inner">
+    <p class="en">TOTAL AESTHETIC CLINIC — GINZA</p>
+    <h1>美の頂へ、<br>確かな医療を。</h1>
+    <p>形成外科専門医による執刀、国内最高水準の医療設備、そして完全個室のプライベート空間。CLINIQUE LUMIÈREは、選ばれた方のためのトータル美容医療クリニックです。</p>
+    <a href="#reserve" class="cta">カウンセリング予約</a><a href="#treatment" class="cta outline">施術一覧</a>
+  </div>
+</div>
+
+<section id="promise">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">OUR PROMISE</p>
+      <h2>LUMIÈREの誓い</h2>
+      <div class="line"></div>
+    </div>
+    <div class="promises">
+      <div class="promise">
+        <div class="num">I</div>
+        <h3>専門医による執刀</h3>
+        <p>すべての手術は形成外科専門医が執刀。経験の浅い医師が担当することは決してありません。</p>
+      </div>
+      <div class="promise">
+        <div class="num">II</div>
+        <h3>オーダーメイドの設計</h3>
+        <p>骨格・筋肉・皮膚の質感まで緻密に分析し、お一人おひとりの「最も美しい黄金比」を設計します。</p>
+      </div>
+      <div class="promise">
+        <div class="num">III</div>
+        <h3>生涯のアフターケア</h3>
+        <p>術後の検診は回数無制限・無料。10年後の美しさまで、私たちが責任を持ちます。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="treatment" class="treatment-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SIGNATURE TREATMENT</p>
+      <h2>代表的な施術</h2>
+      <div class="line"></div>
+    </div>
+    <div class="treatments">
+      <div class="treatment">
+        <p class="en">Eyes</p>
+        <h3>目元形成術</h3>
+        <p>二重形成・眼瞼下垂・目頭切開。0.1mm単位のデザインで、印象を根本から美しく。</p>
+        <p class="price">¥275,000 〜(税込)</p>
+      </div>
+      <div class="treatment">
+        <p class="en">Nose</p>
+        <h3>鼻形成術</h3>
+        <p>プロテーゼ・軟骨移植による、横顔まで計算されたエレガントな鼻筋へ。</p>
+        <p class="price">¥550,000 〜(税込)</p>
+      </div>
+      <div class="treatment">
+        <p class="en">Lift</p>
+        <h3>フェイスリフト</h3>
+        <p>SMAS筋膜からしっかりと引き上げる本格リフト。10年前の輪郭を取り戻します。</p>
+        <p class="price">¥1,100,000 〜(税込)</p>
+      </div>
+      <div class="treatment">
+        <p class="en">Skin</p>
+        <h3>美肌再生治療</h3>
+        <p>最新レーザーと再生医療によるエイジングケア。肌そのものを若返らせます。</p>
+        <p class="price">¥88,000 〜(税込)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="doctor">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">EXECUTIVE DOCTOR</p>
+      <h2>総院長のご紹介</h2>
+      <div class="line"></div>
+    </div>
+    <div class="doctor">
+      <div class="doctor-photo">
+        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=800&q=60" alt="総院長 如月 麗華" loading="lazy">
+      </div>
+      <div>
+        <h3>如月 麗華</h3>
+        <p class="title">総院長 / 日本形成外科学会専門医・国際美容外科学会正会員</p>
+        <p>パリ・ソウル・東京で研鑽を積み、国内外で20,000件を超える症例を執刀。海外の学会での招待講演も多数。「手術は芸術であり、科学である」を信条とする。</p>
+        <p>女性ならではの繊細な美意識と、形成外科医としての確かな技術。その両輪が、LUMIÈREの品質を支えています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="risk-note">
+      <h3>リスク・副作用について</h3>
+      <p>美容外科手術には、腫脹・内出血・感染・瘢痕・左右差等のリスクがあります。当院では術前カウンセリングにて、施術ごとのリスクと回避策、ダウンタイムについて文書を用いて丁寧にご説明いたします。</p>
+    </div>
+  </div>
+</section>
+
+<section id="access" class="treatment-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">ACCESS</p>
+      <h2>アクセス</h2>
+      <div class="line"></div>
+    </div>
+    <div class="access-grid">
+      <div>
+        <table>
+          <tr><th>名称</th><td>CLINIQUE LUMIÈRE GINZA</td></tr>
+          <tr><th>住所</th><td>東京都中央区銀座6-9-2 ルミエールビル5F</td></tr>
+          <tr><th>診療時間</th><td>10:00〜19:00(完全予約制・年中無休)</td></tr>
+          <tr><th>アクセス</th><td>東京メトロ「銀座駅」A2出口より徒歩2分</td></tr>
+        </table>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都中央区銀座6-9-2&output=embed" loading="lazy" title="CLINIQUE LUMIÈRE GINZA 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>特別なあなたへ、特別な体験を。</h2>
+    <p>カウンセリングは完全予約制・完全個室。<br>総院長によるカウンセリングをご希望の方はその旨お申し付けください。</p>
+    <a href="#" class="cta-gold">カウンセリングを予約する</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 CLINIQUE LUMIÈRE GINZA | 医療広告ガイドライン遵守</p>
+</footer>
+
+</body>
+</html>

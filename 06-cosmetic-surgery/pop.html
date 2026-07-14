@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ルミナ美容クリニック | はじめての美容医療、いっしょに。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif; color: #4a3d4a; line-height: 1.9; background: #fdf6ff; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+  .logo { font-size: 1.25rem; font-weight: 800; color: #a56cf5; }
+  .reserve-btn { background: #a56cf5; color: #fff; padding: 10px 26px; border-radius: 999px; font-weight: 800; box-shadow: 0 3px 0 #8449d9; }
+
+  .hero { background: linear-gradient(135deg, #eed9ff 0%, #ffe3f1 100%); padding: 90px 0; text-align: center; position: relative; overflow: hidden; }
+  .deco { position: absolute; font-size: 2.8rem; opacity: .65; }
+  .d1 { top: 10%; left: 7%; transform: rotate(-15deg); }
+  .d2 { top: 22%; right: 8%; transform: rotate(15deg); }
+  .d3 { bottom: 14%; left: 12%; transform: rotate(10deg); }
+  .d4 { bottom: 18%; right: 13%; transform: rotate(-10deg); }
+  .hero .badge { display: inline-block; background: #ff7bac; color: #fff; padding: 8px 26px; border-radius: 999px; font-weight: 800; margin-bottom: 20px; transform: rotate(-2deg); box-shadow: 0 3px 0 #e0568c; }
+  .hero h1 { font-size: 2.3rem; font-weight: 800; color: #8449d9; margin-bottom: 14px; line-height: 1.6; }
+  .hero p { font-weight: bold; color: #7a5d92; margin-bottom: 30px; }
+  .cta { display: inline-block; background: linear-gradient(135deg, #a56cf5, #ff7bac); color: #fff; padding: 19px 56px; border-radius: 999px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 6px 0 #8449d9; transition: transform .15s; }
+  .cta:hover { transform: translateY(3px); }
+  .hero small { display: block; margin-top: 14px; font-weight: bold; color: #8a6da5; font-size: 0.85rem; }
+
+  section { padding: 74px 0; }
+  .section-title { text-align: center; font-size: 1.65rem; font-weight: 800; color: #8449d9; margin-bottom: 42px; }
+
+  .worry { max-width: 620px; margin: 0 auto; background: #fff; border-radius: 28px; padding: 40px 44px; box-shadow: 0 6px 24px rgba(0,0,0,0.06); }
+  .worry li { list-style: none; padding: 10px 0; font-weight: bold; border-bottom: 2px dashed #eee0ff; }
+  .worry li::before { content: "😟 "; }
+  .worry .msg { text-align: center; border: none; color: #a56cf5; font-size: 1.15rem; padding-top: 24px; }
+  .worry .msg::before { content: "✨ "; }
+
+  .menus { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .menu { background: #fff; border-radius: 26px; padding: 34px 24px; text-align: center; border: 3px solid #e5d3ff; box-shadow: 0 5px 0 #e5d3ff; }
+  .menu .icon { font-size: 2.8rem; margin-bottom: 10px; }
+  .menu h3 { font-weight: 800; color: #8449d9; margin-bottom: 6px; }
+  .menu .price { font-size: 1.5rem; font-weight: 800; color: #ff7bac; margin-bottom: 8px; }
+  .menu .price small { font-size: 0.85rem; color: #999; }
+  .menu p { font-size: 0.85rem; }
+
+  .safety { background: #fff; border-radius: 36px; margin: 0 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+  .safety-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .safety-item { display: flex; gap: 16px; background: #fdf6ff; border-radius: 20px; padding: 22px; align-items: flex-start; }
+  .safety-item .icon { font-size: 1.9rem; }
+  .safety-item h3 { font-weight: 800; font-size: 0.98rem; margin-bottom: 4px; color: #8449d9; }
+  .safety-item p { font-size: 0.85rem; }
+
+  .risk-note { max-width: 720px; margin: 40px auto 0; background: #f6efff; border-radius: 20px; padding: 24px 30px; font-size: 0.82rem; color: #7a5d92; }
+  .risk-note b { color: #8449d9; }
+
+  .cta-section { background: linear-gradient(135deg, #a56cf5, #ff7bac); color: #fff; text-align: center; border-radius: 40px 40px 0 0; }
+  .cta-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+  .cta-section p { font-weight: bold; margin-bottom: 28px; }
+  .cta-white { display: inline-block; background: #fff; color: #a56cf5; padding: 19px 56px; border-radius: 999px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 5px 0 rgba(0,0,0,0.15); }
+
+  footer { padding: 28px 0; text-align: center; font-size: 0.78rem; color: #b3a0c4; background: #fff; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.55rem; }
+    .menus, .safety-grid { grid-template-columns: 1fr; }
+    section { padding: 54px 0; }
+    .deco { font-size: 2rem; }
+  }
+  img { max-width: 100%; display: block; }
+  .photo-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .photo-strip figure { border-radius: 24px; overflow: hidden; border: 4px solid #fff; box-shadow: 0 6px 0 rgba(132,73,217,0.15); background: #eee0ff; }
+  .photo-strip img { width: 100%; height: 210px; object-fit: cover; }
+  .photo-strip figcaption { background: #fff; font-size: 0.82rem; font-weight: 800; color: #8449d9; text-align: center; padding: 10px 0; }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+  .access-info { background: #fff; border-radius: 24px; padding: 30px 32px; border: 3px solid #e5d3ff; }
+  .access-info dl { display: grid; grid-template-columns: auto 1fr; gap: 10px 16px; font-size: 0.95rem; }
+  .access-info dt { font-weight: 800; color: #a56cf5; white-space: nowrap; }
+  .access-info dd { font-weight: bold; }
+  .map-wrap { border-radius: 24px; overflow: hidden; border: 4px solid #fff; box-shadow: 0 6px 0 rgba(132,73,217,0.15); }
+  .map-wrap iframe { width: 100%; height: 300px; border: 0; display: block; }
+  @media (max-width: 768px) { .photo-strip, .access-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">🌷 ルミナ美容クリニック</div>
+    <a href="#reserve" class="reserve-btn">無料相談♪</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="deco d1">💜</span>
+  <span class="deco d2">✨</span>
+  <span class="deco d3">🌷</span>
+  <span class="deco d4">💫</span>
+  <div class="container">
+    <div class="badge">学割・はじめて割あり!</div>
+    <h1>はじめての美容医療、<br>いっしょに考えよ?</h1>
+    <p>カウンセリング無料・当日勧誘なし。「話を聞くだけ」大歓迎です🌷</p>
+    <a href="#reserve" class="cta">LINEで無料相談する ▶</a>
+    <small>※医師によるカウンセリングです。相談だけでもOK!</small>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">こんなモヤモヤ、ありませんか?</h2>
+    <ul class="worry">
+      <li>美容クリニックって、なんだか怖いイメージ…</li>
+      <li>高いコースを契約させられそうで不安</li>
+      <li>SNSの症例写真、盛りすぎでは?と思っちゃう</li>
+      <li>そもそも何が自分に合うのか分からない</li>
+      <li class="msg">その不安ぜんぶ、無料カウンセリングで解消しよ!</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🌷 人気のプチ整形メニュー</h2>
+    <div class="menus">
+      <div class="menu">
+        <div class="icon">👀</div>
+        <h3>二重埋没法</h3>
+        <p class="price">29,800<small>円〜(税込)</small></p>
+        <p>切らずに10分、憧れのぱっちり二重に。ダウンタイムは約1週間。</p>
+      </div>
+      <div class="menu">
+        <div class="icon">💧</div>
+        <h3>ヒアルロン酸(涙袋)</h3>
+        <p class="price">19,800<small>円〜(税込)</small></p>
+        <p>ちゅるんとした涙袋で、優しげな目元に。施術は約15分。</p>
+      </div>
+      <div class="menu">
+        <div class="icon">✨</div>
+        <h3>美肌レーザー</h3>
+        <p class="price">9,800<small>円〜(税込)</small></p>
+        <p>毛穴・くすみ・ニキビ跡に。お昼休みに受けられる手軽さが人気!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🏥 クリニックはこんな雰囲気♪</h2>
+    <div class="photo-strip">
+      <figure><img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&w=800&q=60" alt="やさしい女性医師" loading="lazy"><figcaption>先生はみんな話しやすい♪</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=60" alt="明るい院内" loading="lazy"><figcaption>カフェみたいな待合室</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=60" alt="丁寧なカウンセリング" loading="lazy"><figcaption>カウンセリングもゆっくり</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="safety">
+  <div class="container">
+    <h2 class="section-title">🛡️ ルミナの安心ポイント</h2>
+    <div class="safety-grid">
+      <div class="safety-item">
+        <span class="icon">👩‍⚕️</span>
+        <div><h3>カウンセリングは医師が担当</h3><p>営業スタッフではなく、施術する医師本人があなたのお悩みを聞きます。</p></div>
+      </div>
+      <div class="safety-item">
+        <span class="icon">🙅‍♀️</span>
+        <div><h3>当日施術のおすすめナシ</h3><p>一度おうちでゆっくり考えてから決めてOK。急かすことは絶対しません。</p></div>
+      </div>
+      <div class="safety-item">
+        <span class="icon">💰</span>
+        <div><h3>表示価格=お支払い総額</h3><p>麻酔代もお薬代もぜんぶコミコミ。あとから追加請求はありません。</p></div>
+      </div>
+      <div class="safety-item">
+        <span class="icon">📱</span>
+        <div><h3>術後もLINEでずっと相談</h3><p>ダウンタイム中の不安も、LINEでいつでも聞けるから安心です。</p></div>
+      </div>
+    </div>
+    <div class="risk-note">
+      <b>リスク・副作用について:</b>施術により腫れ・内出血・痛み等が生じる場合があります。カウンセリングでリスクとダウンタイムを必ずご説明し、同意いただいてから施術します。
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">📍 アクセス</h2>
+    <div class="access-grid">
+      <div class="access-info">
+        <dl>
+          <dt>📍 住所</dt><dd>東京都新宿区新宿3-17-5 ルミナビル6F</dd>
+          <dt>🚃 最寄り駅</dt><dd>東京メトロ「新宿三丁目駅」C5出口から徒歩1分</dd>
+          <dt>🕐 診療時間</dt><dd>11:00〜20:00(不定休)</dd>
+          <dt>💜 予約</dt><dd>LINEで24時間受付中!</dd>
+        </dl>
+      </div>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps?q=東京都新宿区新宿3-17-5&output=embed" loading="lazy" title="ルミナ美容クリニック 地図"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>まずは、話してみることから🌷</h2>
+    <p>無料カウンセリングはLINEから24時間予約OK!</p>
+    <a href="#" class="cta-white">LINEで予約する ▶</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 ルミナ美容クリニック | 医療広告ガイドライン遵守</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIYABI MEDICAL SALON | 会員制プライベート診療</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #fbfaf7; color: #38342c; line-height: 2.1; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(251,250,247,0.94); border-bottom: 1px solid #e3dbc9; backdrop-filter: blur(6px); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 78px; }
+  .logo { letter-spacing: 0.4em; color: #8e7a45; font-size: 1rem; }
+  nav ul { display: flex; gap: 36px; list-style: none; font-size: 0.78rem; letter-spacing: 0.25em; color: #6e6754; }
+  nav a:hover { color: #8e7a45; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(115deg, #fbfaf7 45%, #ece4d0 100%); }
+  .hero-inner { padding: 150px 0 100px; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.65em; color: #8e7a45; margin-bottom: 28px; }
+  .hero h1 { font-size: 2.6rem; font-weight: 500; letter-spacing: 0.15em; line-height: 1.8; margin-bottom: 26px; color: #2c2921; }
+  .hero p { color: #7d7460; font-size: 0.95rem; margin-bottom: 46px; max-width: 560px; }
+  .cta { display: inline-block; background: #8e7a45; color: #fff; padding: 18px 60px; letter-spacing: 0.3em; font-size: 0.85rem; transition: opacity .3s; }
+  .cta:hover { opacity: .85; }
+
+  section { padding: 106px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #8e7a45; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.6rem; font-weight: 500; letter-spacing: 0.22em; color: #2c2921; }
+  .line { width: 46px; height: 1px; background: #8e7a45; margin: 22px auto 0; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center; }
+  .feature .num { font-size: 2rem; color: #8e7a45; font-style: italic; margin-bottom: 14px; }
+  .feature h3 { font-size: 1.05rem; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .feature p { font-size: 0.86rem; color: #7d7460; }
+
+  .service-section { background: #f2ede0; }
+  .services { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+  .service { background: #fff; border: 1px solid #e3dbc9; padding: 44px 40px; }
+  .service .en { font-style: italic; color: #8e7a45; font-size: 0.8rem; letter-spacing: 0.2em; margin-bottom: 14px; }
+  .service h3 { font-size: 1.12rem; letter-spacing: 0.12em; margin-bottom: 12px; }
+  .service p { font-size: 0.86rem; color: #7d7460; }
+
+  .membership { max-width: 640px; margin: 0 auto; border: 1px solid #cdbf9a; padding: 60px 50px; text-align: center; position: relative; background: #fff; }
+  .membership::before { content: ""; position: absolute; inset: 7px; border: 1px solid #e3dbc9; pointer-events: none; }
+  .membership .label { color: #8e7a45; letter-spacing: 0.45em; font-size: 0.76rem; display: block; margin-bottom: 22px; }
+  .membership h3 { font-size: 1.3rem; letter-spacing: 0.2em; margin-bottom: 20px; }
+  .membership .price { font-size: 2.2rem; color: #8e7a45; margin-bottom: 6px; }
+  .membership .price small { font-size: 0.9rem; }
+  .membership .note { font-size: 0.8rem; color: #7d7460; margin-bottom: 26px; }
+  .membership ul { list-style: none; text-align: left; max-width: 400px; margin: 0 auto 36px; font-size: 0.88rem; color: #5c5545; }
+  .membership li { padding: 9px 0; border-bottom: 1px solid #ece4d0; }
+  .membership li::before { content: "◆ "; color: #8e7a45; font-size: 0.7rem; }
+
+  .doctor { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; align-items: center; }
+  .doctor-photo { aspect-ratio: 3/4; background: linear-gradient(160deg, #e3dbc9, #d2c5a5); display: flex; align-items: center; justify-content: center; color: #8e7a45; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .doctor h3 { font-size: 1.35rem; letter-spacing: 0.2em; margin-bottom: 6px; }
+  .doctor .title { color: #8e7a45; font-size: 0.78rem; letter-spacing: 0.25em; margin-bottom: 22px; }
+  .doctor p { font-size: 0.9rem; color: #7d7460; margin-bottom: 14px; }
+
+  .cta-section { background: linear-gradient(115deg, #2c2921, #4a422f); color: #f2ede0; text-align: center; }
+  .cta-section h2 { font-size: 1.5rem; letter-spacing: 0.25em; font-weight: 500; margin-bottom: 18px; }
+  .cta-section p { color: #beb298; font-size: 0.9rem; margin-bottom: 40px; }
+  .cta-gold { display: inline-block; background: #8e7a45; color: #fff; padding: 18px 60px; letter-spacing: 0.3em; font-size: 0.85rem; }
+
+  footer { padding: 36px 0; text-align: center; font-size: 0.72rem; color: #a89a78; letter-spacing: 0.18em; border-top: 1px solid #e3dbc9; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.65rem; }
+    .features, .services, .doctor { grid-template-columns: 1fr; }
+    section { padding: 68px 0; }
+    .membership { padding: 44px 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">MIYABI MEDICAL</div>
+    <nav>
+      <ul>
+        <li><a href="#feature">FEATURE</a></li>
+        <li><a href="#service">SERVICE</a></li>
+        <li><a href="#membership">MEMBERSHIP</a></li>
+        <li><a href="#doctor">DOCTOR</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container hero-inner">
+    <p class="en">PRIVATE MEDICAL SALON — MIYABI</p>
+    <h1>健康こそが、<br>最高の資産である。</h1>
+    <p>会員制プライベート診療サロン「MIYABI MEDICAL SALON」。専属主治医による24時間サポートと、最先端の予防医療で、あなたとご家族の健康を生涯にわたりお守りします。</p>
+    <a href="#membership" class="cta">入会のご案内</a>
+  </div>
+</div>
+
+<section id="feature">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">FEATURE</p>
+      <h2>MIYABIが選ばれる理由</h2>
+      <div class="line"></div>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="num">I</div>
+        <h3>完全予約・完全個室</h3>
+        <p>待合室で他の患者様とお会いすることはありません。ご予約の時間に、専用ラウンジへ直接ご案内いたします。</p>
+      </div>
+      <div class="feature">
+        <div class="num">II</div>
+        <h3>専属主治医制</h3>
+        <p>経験豊富な総合内科専門医が専属主治医として就任。24時間365日、専用回線でご相談いただけます。</p>
+      </div>
+      <div class="feature">
+        <div class="num">III</div>
+        <h3>医療機関ネットワーク</h3>
+        <p>高度な治療が必要な際は、国内トップクラスの専門医・医療機関へ迅速にご紹介いたします。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="service" class="service-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SERVICE</p>
+      <h2>診療・サービス内容</h2>
+      <div class="line"></div>
+    </div>
+    <div class="services">
+      <div class="service">
+        <p class="en">Executive Dock</p>
+        <h3>プレミアム人間ドック</h3>
+        <p>最新のMRI・CT・腫瘍マーカーを含む200項目超の精密検査を、一日で。結果は主治医が直接ご説明します。</p>
+      </div>
+      <div class="service">
+        <p class="en">Preventive Care</p>
+        <h3>予防医療プログラム</h3>
+        <p>遺伝子検査・腸内フローラ解析に基づき、栄養・運動・睡眠の個別プログラムを設計いたします。</p>
+      </div>
+      <div class="service">
+        <p class="en">Home Visit</p>
+        <h3>訪問診療・往診</h3>
+        <p>ご自宅やオフィスへの往診に対応。海外渡航時のメディカルサポートもご相談いただけます。</p>
+      </div>
+      <div class="service">
+        <p class="en">Family Care</p>
+        <h3>ご家族の健康管理</h3>
+        <p>会員様のご家族も同一の主治医が担当。お子様からご両親まで、ご家族全員の健康を一元管理します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="membership">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">MEMBERSHIP</p>
+      <h2>ご入会のご案内</h2>
+      <div class="line"></div>
+    </div>
+    <div class="membership">
+      <span class="label">ANNUAL MEMBERSHIP</span>
+      <h3>プラチナ会員</h3>
+      <p class="price">¥1,200,000<small>/年(税込)</small></p>
+      <p class="note">入会金 ¥550,000 / 定員制(現在若干名)</p>
+      <ul>
+        <li>専属主治医による24時間電話・オンライン相談</li>
+        <li>プレミアム人間ドック 年1回</li>
+        <li>外来診療・予防接種 回数無制限</li>
+        <li>ご家族2名様まで同伴会員登録可</li>
+        <li>提携医療機関への優先紹介</li>
+      </ul>
+      <a href="#contact" class="cta">入会相談を申し込む</a>
+    </div>
+  </div>
+</section>
+
+<section id="doctor">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">DOCTOR</p>
+      <h2>理事長のご紹介</h2>
+      <div class="line"></div>
+    </div>
+    <div class="doctor">
+      <div class="doctor-photo">PORTRAIT</div>
+      <div>
+        <h3>宮部 統一郎</h3>
+        <p class="title">理事長 / 医学博士・日本内科学会総合内科専門医</p>
+        <p>大学医学部教授、大学病院副院長を歴任。国内外の要人診療の経験を経て、「一人ひとりに深く寄り添う医療」を実現するため当サロンを開設。</p>
+        <p>著書多数、テレビ・経済誌への出演・寄稿も多数。現在も第一線で診療にあたっています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="container">
+    <h2>入会のご相談</h2>
+    <p>まずは、施設見学を兼ねた入会面談へお越しください。<br>ご紹介制ではございませんので、どなたさまもお問い合わせいただけます。</p>
+    <a href="#" class="cta-gold">面談を予約する</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 MIYABI MEDICAL SALON</p>
+</footer>
+
+</body>
+</html>

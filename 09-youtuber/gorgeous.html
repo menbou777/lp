@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KAIRI | Luxury Travel Channel — Official</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Mincho ProN", "Yu Mincho", serif; background: #0d0e12; color: #e9e4d8; line-height: 2.1; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(13,14,18,0.92); border-bottom: 1px solid rgba(198,167,104,0.3); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 76px; }
+  .logo { letter-spacing: 0.5em; color: #c6a768; font-size: 1.05rem; }
+  nav ul { display: flex; gap: 36px; list-style: none; font-size: 0.78rem; letter-spacing: 0.3em; }
+  nav a:hover { color: #c6a768; }
+
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;
+    background: radial-gradient(ellipse at 50% 30%, #232636 0%, #0d0e12 65%); }
+  .hero-inner { padding: 130px 24px 90px; }
+  .hero .en { font-size: 0.78rem; letter-spacing: 0.7em; color: #c6a768; margin-bottom: 30px; }
+  .hero h1 { font-size: 2.6rem; font-weight: 500; letter-spacing: 0.22em; margin-bottom: 24px; }
+  .hero p { color: #aba48f; font-size: 0.95rem; margin-bottom: 44px; }
+  .cta { display: inline-block; border: 1px solid #c6a768; color: #c6a768; padding: 17px 60px; letter-spacing: 0.32em; font-size: 0.85rem; transition: all .3s; }
+  .cta:hover { background: #c6a768; color: #0d0e12; }
+  .stats { display: flex; justify-content: center; gap: 64px; margin-top: 60px; }
+  .stat .value { font-size: 1.8rem; color: #c6a768; letter-spacing: 0.08em; }
+  .stat .label { font-size: 0.7rem; color: #aba48f; letter-spacing: 0.35em; margin-top: 4px; }
+
+  section { padding: 108px 0; }
+  .section-head { text-align: center; margin-bottom: 60px; }
+  .section-head .en { font-size: 0.72rem; letter-spacing: 0.55em; color: #c6a768; margin-bottom: 14px; }
+  .section-head h2 { font-size: 1.6rem; font-weight: 500; letter-spacing: 0.22em; }
+  .line { width: 46px; height: 1px; background: #c6a768; margin: 22px auto 0; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 60px; align-items: center; }
+  .about-photo { aspect-ratio: 3/4; background: linear-gradient(160deg, #2d3040, #16171e); border: 1px solid rgba(198,167,104,0.35); display: flex; align-items: center; justify-content: center; color: #c6a768; letter-spacing: 0.3em; font-size: 0.8rem; }
+  .about-grid h3 { font-size: 1.35rem; letter-spacing: 0.2em; margin-bottom: 20px; line-height: 2; }
+  .about-grid p { font-size: 0.9rem; color: #aba48f; margin-bottom: 16px; }
+
+  .series-section { background: #14151c; border-top: 1px solid rgba(198,167,104,0.2); border-bottom: 1px solid rgba(198,167,104,0.2); }
+  .series { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .series-item { border: 1px solid rgba(198,167,104,0.4); background: #0d0e12; }
+  .series-item .thumb { aspect-ratio: 16/9; background: linear-gradient(140deg, #2d3040, #16171e); display: flex; align-items: center; justify-content: center; font-size: 2rem; border-bottom: 1px solid rgba(198,167,104,0.3); }
+  .series-item .body { padding: 28px 26px; }
+  .series-item .en { font-style: italic; color: #c6a768; font-size: 0.78rem; letter-spacing: 0.2em; margin-bottom: 10px; }
+  .series-item h3 { font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 10px; }
+  .series-item p { font-size: 0.82rem; color: #aba48f; }
+
+  .partner { text-align: center; max-width: 720px; margin: 0 auto; }
+  .partner p { font-size: 0.92rem; color: #aba48f; margin-bottom: 20px; }
+  .partner-logos { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+  .partner-logo { border: 1px solid rgba(198,167,104,0.35); padding: 16px 36px; letter-spacing: 0.25em; font-size: 0.8rem; color: #c6a768; }
+
+  .cta-section { text-align: center; background: radial-gradient(ellipse at 50% 100%, #232636 0%, #0d0e12 70%); }
+  .cta-section h2 { font-size: 1.5rem; letter-spacing: 0.28em; margin-bottom: 18px; }
+  .cta-section p { color: #aba48f; font-size: 0.88rem; margin-bottom: 40px; }
+
+  footer { padding: 36px 0; text-align: center; font-size: 0.72rem; color: #6f6a58; letter-spacing: 0.2em; border-top: 1px solid rgba(198,167,104,0.15); }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero h1 { font-size: 1.65rem; }
+    .about-grid, .series { grid-template-columns: 1fr; }
+    .stats { gap: 32px; }
+    section { padding: 70px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">KAIRI</div>
+    <nav>
+      <ul>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#series">SERIES</a></li>
+        <li><a href="#partner">PARTNER</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <p class="en">LUXURY TRAVEL CHANNEL</p>
+    <h1>世界の「最上」を、<br>あなたの部屋へ。</h1>
+    <p>ファーストクラス、五つ星ホテル、秘境のオーベルジュ。<br>旅の頂点だけを映像に収める、トラベルチャンネル。</p>
+    <a href="#" class="cta">WATCH ON YOUTUBE</a>
+    <div class="stats">
+      <div class="stat"><div class="value">87万</div><div class="label">SUBSCRIBERS</div></div>
+      <div class="stat"><div class="value">52カ国</div><div class="label">COUNTRIES</div></div>
+      <div class="stat"><div class="value">1.2億</div><div class="label">TOTAL VIEWS</div></div>
+    </div>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">ABOUT</p>
+      <h2>KAIRIについて</h2>
+      <div class="line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-photo">PORTRAIT</div>
+      <div>
+        <h3>旅は、人生への投資である。</h3>
+        <p>元・外資系航空会社勤務。世界中を飛び回った経験を活かし、2019年よりYouTubeで旅行チャンネルを開設。「一生に一度は体験したい旅」をテーマに、ファーストクラス搭乗記や世界の五つ星ホテル滞在記を配信。</p>
+        <p>シネマカメラによる映像美と、元業界人ならではの深い解説が支持され、登録者は87万人に。旅行雑誌での連載、テレビ出演など活動の幅を広げている。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="series" class="series-section">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">SIGNATURE SERIES</p>
+      <h2>人気シリーズ</h2>
+      <div class="line"></div>
+    </div>
+    <div class="series">
+      <div class="series-item">
+        <div class="thumb">✈️</div>
+        <div class="body">
+          <p class="en">First Class Diary</p>
+          <h3>ファーストクラス搭乗記</h3>
+          <p>世界の名門エアラインのファーストクラスを徹底レビュー。機内食からアメニティまで。</p>
+        </div>
+      </div>
+      <div class="series-item">
+        <div class="thumb">🏨</div>
+        <div class="body">
+          <p class="en">Suite Stay</p>
+          <h3>世界の五つ星スイート</h3>
+          <p>一泊100万円超のスイートルームも。世界最高峰のホスピタリティを映像で体験。</p>
+        </div>
+      </div>
+      <div class="series-item">
+        <div class="thumb">🏝️</div>
+        <div class="body">
+          <p class="en">Hidden Paradise</p>
+          <h3>秘境のオーベルジュ</h3>
+          <p>予約の取れない一軒宿、島まるごと貸切のリゾート。知られざる楽園を訪ねて。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partner">
+  <div class="container">
+    <div class="section-head">
+      <p class="en">PARTNERSHIP</p>
+      <h2>タイアップ実績</h2>
+      <div class="line"></div>
+    </div>
+    <div class="partner">
+      <p>国内外のエアライン、ラグジュアリーホテルブランド、時計・革小物メーカーなど、これまで60社以上とのタイアップを実施。ブランドの世界観を損なわない上質な映像表現をお約束します。</p>
+      <div class="partner-logos">
+        <span class="partner-logo">AIRLINE</span>
+        <span class="partner-logo">HOTEL GROUP</span>
+        <span class="partner-logo">WATCH MAISON</span>
+        <span class="partner-logo">CREDIT CARD</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <div class="container">
+    <h2>お仕事のご依頼</h2>
+    <p>タイアップ・メディア出演・講演のご依頼は、下記フォームより承ります。<br>所属事務所を通じ、3営業日以内にご返信いたします。</p>
+    <a href="#" class="cta">CONTACT FORM</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 KAIRI — LUXURY TRAVEL CHANNEL</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>そらまめ小児科クリニック | こわくない病院、あります!</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Maru Gothic ProN", "Hiragino Kaku Gothic ProN", sans-serif; color: #4a4237; line-height: 1.9; background: #fffdf2; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: #fff; z-index: 100; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 66px; }
+  .logo { font-size: 1.2rem; font-weight: 800; color: #6cbf5a; }
+  .reserve-btn { background: #6cbf5a; color: #fff; padding: 10px 24px; border-radius: 999px; font-weight: 800; box-shadow: 0 3px 0 #529644; }
+
+  .hero { background: linear-gradient(135deg, #d8f2c8 0%, #fdf3c2 100%); padding: 88px 0; text-align: center; position: relative; overflow: hidden; }
+  .deco { position: absolute; font-size: 2.9rem; opacity: .7; }
+  .d1 { top: 10%; left: 7%; transform: rotate(-15deg); }
+  .d2 { top: 22%; right: 8%; transform: rotate(15deg); }
+  .d3 { bottom: 13%; left: 12%; transform: rotate(8deg); }
+  .d4 { bottom: 18%; right: 13%; transform: rotate(-12deg); }
+  .hero .badge { display: inline-block; background: #ff9640; color: #fff; padding: 8px 26px; border-radius: 999px; font-weight: 800; margin-bottom: 20px; transform: rotate(-2deg); box-shadow: 0 3px 0 #d97826; }
+  .hero h1 { font-size: 2.3rem; font-weight: 800; color: #3f7a33; margin-bottom: 14px; line-height: 1.6; }
+  .hero h1 .accent { color: #ff9640; }
+  .hero p { font-weight: bold; color: #5c7a4e; margin-bottom: 30px; }
+  .cta { display: inline-block; background: #6cbf5a; color: #fff; padding: 18px 54px; border-radius: 999px; font-weight: 800; font-size: 1.12rem; box-shadow: 0 6px 0 #529644; transition: transform .15s; }
+  .cta:hover { transform: translateY(3px); }
+
+  section { padding: 72px 0; }
+  .section-title { text-align: center; font-size: 1.65rem; font-weight: 800; color: #3f7a33; margin-bottom: 42px; }
+
+  .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .feature { background: #fff; border-radius: 26px; padding: 34px 26px; text-align: center; border: 3px solid; box-shadow: 0 5px 0 rgba(0,0,0,0.05); }
+  .feature:nth-child(1) { border-color: #b8e0a8; }
+  .feature:nth-child(2) { border-color: #ffd68a; }
+  .feature:nth-child(3) { border-color: #a8d8f0; }
+  .feature .icon { font-size: 2.9rem; margin-bottom: 10px; }
+  .feature h3 { font-weight: 800; font-size: 1.08rem; margin-bottom: 8px; }
+  .feature:nth-child(1) h3 { color: #529644; }
+  .feature:nth-child(2) h3 { color: #e5921a; }
+  .feature:nth-child(3) h3 { color: #3492c4; }
+  .feature p { font-size: 0.88rem; }
+
+  .hours { background: #fff; border-radius: 36px; margin: 0 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+  .hours-table { width: 100%; max-width: 700px; margin: 0 auto; border-collapse: collapse; font-weight: bold; font-size: 0.9rem; }
+  .hours-table th, .hours-table td { padding: 13px 6px; text-align: center; border-bottom: 2px dashed #e5f0d8; }
+  .hours-table thead th { color: #3f7a33; }
+  .hours-table .circle { color: #6cbf5a; font-size: 1.1rem; }
+  .hours-note { text-align: center; font-size: 0.8rem; margin-top: 18px; color: #8a9a7a; font-weight: bold; }
+
+  .prep { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; max-width: 800px; margin: 0 auto; }
+  .prep-item { display: flex; gap: 16px; background: #fff; border-radius: 20px; padding: 24px; box-shadow: 0 4px 16px rgba(0,0,0,0.06); align-items: flex-start; }
+  .prep-item .icon { font-size: 2rem; }
+  .prep-item h3 { font-weight: 800; font-size: 0.98rem; color: #3f7a33; margin-bottom: 4px; }
+  .prep-item p { font-size: 0.85rem; }
+
+  .voice { background: #fdf3c2; border-radius: 40px; margin: 0 20px; }
+  .voice-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .voice-card { background: #fff; border-radius: 20px; padding: 26px 22px; }
+  .voice-card .stars { color: #ffb400; margin-bottom: 8px; }
+  .voice-card p { font-size: 0.88rem; }
+  .voice-card .who { margin-top: 10px; font-size: 0.78rem; color: #999; font-weight: bold; }
+
+  .cta-section { background: linear-gradient(135deg, #6cbf5a, #4aa8c9); color: #fff; text-align: center; border-radius: 40px 40px 0 0; }
+  .cta-section h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
+  .cta-section .tel { font-size: 2.3rem; font-weight: 800; margin: 12px 0 24px; }
+  .cta-white { display: inline-block; background: #fff; color: #529644; padding: 18px 54px; border-radius: 999px; font-weight: 800; font-size: 1.1rem; box-shadow: 0 5px 0 rgba(0,0,0,0.15); }
+
+  footer { padding: 28px 0; text-align: center; font-size: 0.78rem; color: #a3a08a; background: #fff; }
+
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 1.55rem; }
+    .features, .prep, .voice-grid { grid-template-columns: 1fr; }
+    section { padding: 52px 0; }
+    .deco { font-size: 2rem; }
+    .hours { overflow-x: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">🫛 そらまめ小児科</div>
+    <a href="#reserve" class="reserve-btn">📱 順番予約</a>
+  </div>
+</header>
+
+<div class="hero">
+  <span class="deco d1">🫛</span>
+  <span class="deco d2">🌈</span>
+  <span class="deco d3">🧸</span>
+  <span class="deco d4">⭐</span>
+  <div class="container">
+    <div class="badge">スマホで順番予約OK!</div>
+    <h1>「こわくない病院」、<br><span class="accent">あります!</span></h1>
+    <p>泣いてもぐずっても大丈夫。子どもが「また来たい」と言う小児科です🫛</p>
+    <a href="#reserve" class="cta">今の待ち時間を見る ▶</a>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">🌈 そらまめのやくそく</h2>
+    <div class="features">
+      <div class="feature">
+        <div class="icon">🧸</div>
+        <h3>こわくない工夫がいっぱい</h3>
+        <p>白衣は着ません!診察室にはぬいぐるみ、注射のあとはごほうびシール。泣かずにできたら院内放送で拍手も📣</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📱</div>
+        <h3>待ち時間はおうちでOK</h3>
+        <p>スマホで順番予約→順番が近づいたら通知でお知らせ。院内で長時間待つ必要はありません!</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🚗</div>
+        <h3>隔離室&車内診察OK</h3>
+        <p>感染症が心配な時期も安心。入口が別の隔離室と、車の中で診察できる「ドライブスルー診察」があります。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hours">
+  <div class="container">
+    <h2 class="section-title">🕐 診療時間</h2>
+    <table class="hours-table">
+      <thead>
+        <tr><th></th><th>月</th><th>火</th><th>水</th><th>木</th><th>金</th><th>土</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>9:00〜12:00</td><td class="circle">😊</td><td class="circle">😊</td><td class="circle">😊</td><td>—</td><td class="circle">😊</td><td class="circle">😊</td></tr>
+        <tr><td>15:00〜18:00</td><td class="circle">😊</td><td class="circle">😊</td><td class="circle">😊</td><td>—</td><td class="circle">😊</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p class="hours-note">😊=診療しています / 木曜・日曜・祝日はおやすみ / 14:00〜15:00は予防接種・健診専用タイム💉</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">👜 受診のとき、これ持ってきてね</h2>
+    <div class="prep">
+      <div class="prep-item">
+        <span class="icon">🎫</span>
+        <div><h3>マイナ保険証(または保険証)</h3><p>乳幼児医療証も忘れずに!</p></div>
+      </div>
+      <div class="prep-item">
+        <span class="icon">📖</span>
+        <div><h3>母子手帳</h3><p>予防接種・健診のときは必ずお願いします。</p></div>
+      </div>
+      <div class="prep-item">
+        <span class="icon">💊</span>
+        <div><h3>おくすり手帳</h3><p>ほかの病院のお薬がわかると診察がスムーズ!</p></div>
+      </div>
+      <div class="prep-item">
+        <span class="icon">📝</span>
+        <div><h3>症状のメモ</h3><p>熱の推移や食欲など、気づいたことをメモしてきてくれると助かります。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="voice">
+  <div class="container">
+    <h2 class="section-title">💬 パパ・ママの声</h2>
+    <div class="voice-grid">
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>病院嫌いだった娘が「そらまめ行く!」と自分から言うように。先生の魔法すごい…!</p>
+        <div class="who">3歳女の子のママ</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>順番予約システムが神。車で待てるので、きょうだい連れでも本当に助かります。</p>
+        <div class="who">2児のパパ</div>
+      </div>
+      <div class="voice-card">
+        <div class="stars">★★★★★</div>
+        <p>説明が丁寧で、家でのケアの仕方まで教えてくれます。初めての育児の心強い味方!</p>
+        <div class="who">0歳男の子のママ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>📱 順番予約はこちら!</h2>
+    <p>朝7時から当日の順番予約ができます</p>
+    <div class="tel">03-3333-7777</div>
+    <a href="#" class="cta-white">スマホで順番予約 ▶</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 そらまめ小児科クリニック</p>
+</footer>
+
+</body>
+</html>

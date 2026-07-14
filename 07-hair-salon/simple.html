@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>hair atelier SOU | 髪に、素直に。</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif; color: #3d3a37; line-height: 2; background: #fff; }
+  a { text-decoration: none; color: inherit; }
+  .container { max-width: 960px; margin: 0 auto; padding: 0 20px; }
+
+  header { position: sticky; top: 0; background: rgba(255,255,255,0.95); border-bottom: 1px solid #eee; z-index: 100; }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+  .logo { letter-spacing: 0.25em; font-size: 1.05rem; }
+  nav ul { display: flex; gap: 28px; list-style: none; font-size: 0.85rem; }
+  nav a:hover { color: #8f8577; }
+
+  .hero { padding: 140px 0; text-align: center; background: #f6f4f0; }
+  .hero .en { font-size: 0.75rem; letter-spacing: 0.5em; color: #8f8577; margin-bottom: 24px; }
+  .hero h1 { font-size: 2rem; font-weight: 500; letter-spacing: 0.25em; margin-bottom: 22px; }
+  .hero p { color: #8c8378; font-size: 0.92rem; margin-bottom: 40px; }
+  .cta { display: inline-block; background: #3d3a37; color: #fff; padding: 15px 52px; letter-spacing: 0.2em; font-size: 0.88rem; transition: opacity .2s; }
+  .cta:hover { opacity: .8; }
+
+  section { padding: 88px 0; }
+  .section-title { text-align: center; font-size: 1.3rem; letter-spacing: 0.3em; font-weight: 500; margin-bottom: 10px; }
+  .section-sub { text-align: center; color: #c0b8ab; font-size: 0.72rem; letter-spacing: 0.4em; margin-bottom: 48px; }
+
+  .concept { max-width: 600px; margin: 0 auto; text-align: center; font-size: 0.92rem; color: #6e675e; }
+
+  .menu-list { max-width: 640px; margin: 0 auto; }
+  .menu-item { display: flex; justify-content: space-between; align-items: baseline; padding: 18px 4px; border-bottom: 1px solid #eee; font-size: 0.95rem; }
+  .menu-item .price { color: #8f8577; }
+  .menu-note { text-align: center; font-size: 0.78rem; color: #b0a89b; margin-top: 24px; }
+
+  .stylists { display: grid; grid-template-columns: repeat(2, 1fr); gap: 44px; max-width: 760px; margin: 0 auto; }
+  .stylist { text-align: center; }
+  .stylist .photo { aspect-ratio: 3/4; background: #eae6df; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; color: #b0a89b; font-size: 0.8rem; letter-spacing: 0.3em; }
+  .stylist h3 { font-size: 1.05rem; font-weight: 500; letter-spacing: 0.15em; margin-bottom: 4px; }
+  .stylist .role { font-size: 0.75rem; color: #8f8577; letter-spacing: 0.25em; margin-bottom: 12px; }
+  .stylist p { font-size: 0.85rem; color: #8c8378; text-align: left; }
+
+  .info { background: #f6f4f0; }
+  .info table { width: 100%; max-width: 620px; margin: 0 auto; border-collapse: collapse; font-size: 0.9rem; }
+  .info th, .info td { padding: 16px 12px; border-bottom: 1px solid #e2ddd3; text-align: left; }
+  .info th { width: 30%; color: #8f8577; font-weight: normal; letter-spacing: 0.15em; }
+
+  .cta-section { text-align: center; padding: 100px 0; }
+  .cta-section h2 { font-size: 1.3rem; letter-spacing: 0.3em; font-weight: 500; margin-bottom: 18px; }
+  .cta-section p { font-size: 0.88rem; color: #8c8378; margin-bottom: 36px; }
+
+  footer { padding: 30px 0; text-align: center; font-size: 0.75rem; color: #b0a89b; border-top: 1px solid #eee; }
+
+  @media (max-width: 768px) {
+    nav { display: none; }
+    .hero { padding: 88px 0; }
+    .stylists { grid-template-columns: 1fr; }
+    section { padding: 56px 0; }
+  }
+  img { max-width: 100%; display: block; }
+  .stylist .photo img { width: 100%; height: 100%; object-fit: cover; }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .gallery figure { overflow: hidden; background: #eae6df; }
+  .gallery img { width: 100%; height: 230px; object-fit: cover; }
+  .gallery figcaption { font-size: 0.78rem; color: #a5988c; text-align: center; padding: 10px 0 0; letter-spacing: 0.2em; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; max-width: 960px; margin: 0 auto; }
+  .map-wrap { border: 1px solid #e2ddd3; }
+  .map-wrap iframe { width: 100%; height: 320px; border: 0; display: block; }
+  @media (max-width: 768px) { .gallery, .info-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <div class="logo">hair atelier SOU</div>
+    <nav>
+      <ul>
+        <li><a href="#concept">コンセプト</a></li>
+        <li><a href="#menu">メニュー</a></li>
+        <li><a href="#stylist">スタイリスト</a></li>
+        <li><a href="#info">アクセス</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <p class="en">HAIR ATELIER</p>
+    <h1>髪に、素直に。</h1>
+    <p>骨格と髪質を見極めた「素材を活かす」カットで、<br>毎朝のスタイリングがいらない髪へ。</p>
+    <a href="#reserve" class="cta">ご予約はこちら</a>
+  </div>
+</div>
+
+<section id="concept">
+  <div class="container">
+    <h2 class="section-title">コンセプト</h2>
+    <p class="section-sub">CONCEPT</p>
+    <div class="concept">
+      <p>流行を追いかけるだけのスタイルは、提案しません。あなたの髪質、骨格、そして毎日の暮らし。それらに素直に向き合ったとき、いちばん美しいスタイルが見えてきます。SOUは、席数4席だけの小さなアトリエ。一人ひとりと、じっくり向き合うための広さです。</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">サロンの空間</h2>
+    <p class="section-sub">SPACE</p>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=800&q=60" alt="店内の様子" loading="lazy"><figcaption>光の入る店内</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=800&q=60" alt="カットの様子" loading="lazy"><figcaption>丁寧なカット</figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?auto=format&fit=crop&w=800&q=60" alt="仕上げの様子" loading="lazy"><figcaption>仕上げのスタイリング</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="container">
+    <h2 class="section-title">メニュー</h2>
+    <p class="section-sub">MENU</p>
+    <div class="menu-list">
+      <div class="menu-item"><span>カット</span><span class="price">¥6,600</span></div>
+      <div class="menu-item"><span>カット + カラー</span><span class="price">¥13,200</span></div>
+      <div class="menu-item"><span>カット + パーマ</span><span class="price">¥14,300</span></div>
+      <div class="menu-item"><span>髪質改善トリートメント</span><span class="price">¥8,800</span></div>
+      <div class="menu-item"><span>ヘッドスパ(30分)</span><span class="price">¥4,400</span></div>
+    </div>
+    <p class="menu-note">※すべて税込・シャンプー/ブロー込みの料金です。</p>
+  </div>
+</section>
+
+<section id="stylist">
+  <div class="container">
+    <h2 class="section-title">スタイリスト</h2>
+    <p class="section-sub">STYLIST</p>
+    <div class="stylists">
+      <div class="stylist">
+        <div class="photo">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=60" alt="スタイリスト 相沢 奏" loading="lazy">
+        </div>
+        <h3>相沢 奏</h3>
+        <p class="role">OWNER / STYLIST</p>
+        <p>表参道の有名サロンで12年間勤務後、SOUをオープン。ショート〜ボブのカットに定評があり、顧客の9割がリピーター。</p>
+      </div>
+      <div class="stylist">
+        <div class="photo">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=800&q=60" alt="スタイリスト 三浦 このみ" loading="lazy">
+        </div>
+        <h3>三浦 このみ</h3>
+        <p class="role">STYLIST / COLORIST</p>
+        <p>透明感のあるカラーデザインが得意。髪への負担を最小限に抑える薬剤選定で、ダメージレスな美髪カラーを提案します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="info" class="info">
+  <div class="container">
+    <h2 class="section-title">アクセス</h2>
+    <p class="section-sub">ACCESS</p>
+    <div class="info-grid">
+    <table>
+      <tr><th>店名</th><td>hair atelier SOU</td></tr>
+      <tr><th>住所</th><td>東京都目黒区上目黒1-14-2 1F</td></tr>
+      <tr><th>営業時間</th><td>10:00〜19:00(最終受付 カット18:00 / カラー17:00)</td></tr>
+      <tr><th>定休日</th><td>毎週火曜・第2水曜</td></tr>
+      <tr><th>アクセス</th><td>東急東横線「中目黒駅」正面口より徒歩4分</td></tr>
+    </table>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps?q=東京都目黒区上目黒1-14-2&output=embed" loading="lazy" title="hair atelier SOU 地図"></iframe>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section id="reserve" class="cta-section">
+  <div class="container">
+    <h2>ご予約</h2>
+    <p>ゆっくり丁寧に施術するため、1日のご予約数を限らせていただいています。<br>WEBよりお早めのご予約をおすすめします。</p>
+    <a href="#" class="cta">WEB予約する</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 hair atelier SOU</p>
+</footer>
+
+</body>
+</html>
