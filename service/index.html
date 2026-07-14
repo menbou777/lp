@@ -144,7 +144,8 @@
   .browser-bar i{ width:11px; height:11px; border-radius:50%; background:#D5DAD6; }
   .browser-bar .url{ flex:1; background:#fff; border:1px solid var(--line); border-radius:999px; font-size:.68rem; color:var(--gray); padding:3px 14px; margin-left:8px; white-space:nowrap; overflow:hidden; }
   .browser-screen{ position:relative; overflow:hidden; }
-  .browser-screen iframe{ width:1280px; height:900px; border:0; transform-origin:0 0; pointer-events:none; display:block; background:#fff; transition:opacity .45s ease; }
+  .browser-screen iframe{ position:absolute; top:0; left:0; width:1280px; height:900px; border:0; transform-origin:0 0; pointer-events:none; display:block; background:#fff; opacity:0; transition:opacity .45s ease; }
+  .browser-screen iframe.is-active{ opacity:1; }
   .hero-chips{ display:flex; gap:10px; justify-content:center; margin-top:18px; }
   .chip{ font-family:var(--sans); font-size:.8rem; font-weight:700; padding:8px 20px; border-radius:999px; border:1.5px solid var(--line); background:#fff; color:var(--gray); cursor:pointer; transition:all .15s; }
   .chip[aria-selected="true"]{ background:var(--ai-900); border-color:var(--ai-900); color:#fff; }
@@ -306,7 +307,9 @@
         <div class="browser" aria-hidden="true">
           <div class="browser-bar"><i></i><i></i><i></i><span class="url" id="hero-url">04-izakaya / gorgeous.html</span></div>
           <div class="browser-screen" id="hero-screen">
-            <iframe id="hero-frame" src="../04-izakaya/gorgeous.html" title="制作実例プレビュー" loading="eager"></iframe>
+            <iframe class="hero-frame is-active" src="../04-izakaya/gorgeous.html" title="制作実例プレビュー(居酒屋×ゴージャス)"></iframe>
+            <iframe class="hero-frame" src="../01-dental/simple.html" title="制作実例プレビュー(歯科×シンプル)"></iframe>
+            <iframe class="hero-frame" src="../09-youtuber/pop.html" title="制作実例プレビュー(YouTuber×ポップ)"></iframe>
           </div>
         </div>
         <div class="hero-chips" role="tablist" aria-label="ヒーロープレビュー切り替え">
@@ -576,34 +579,25 @@
     var hero = document.getElementById('hero-screen');
     if(hero){
       var s = hero.clientWidth / 1280;
-      var f = document.getElementById('hero-frame');
-      f.style.transform = 'scale(' + s + ')';
+      hero.querySelectorAll('iframe').forEach(function(f){ f.style.transform = 'scale(' + s + ')'; });
       hero.style.height = Math.round(720 * s) + 'px';
     }
   }
   window.addEventListener('resize', fitAll);
   fitAll();
 
-  /* ---- ヒーロー:実例の自動巡回 ---- */
-  var heroSets = [
-    ['../04-izakaya/gorgeous.html', '04-izakaya / gorgeous.html'],
-    ['../01-dental/simple.html',    '01-dental / simple.html'],
-    ['../09-youtuber/pop.html',     '09-youtuber / pop.html']
-  ];
-  var heroFrame = document.getElementById('hero-frame');
-  var heroUrl   = document.getElementById('hero-url');
-  var chips     = document.querySelectorAll('.chip[data-hero]');
+  /* ---- ヒーロー:実例の自動巡回(3枚を先読みし、透明度だけ切り替える) ---- */
+  var heroLabels = ['04-izakaya / gorgeous.html', '01-dental / simple.html', '09-youtuber / pop.html'];
+  var heroFrames = document.querySelectorAll('.hero-frame');
+  var heroUrl    = document.getElementById('hero-url');
+  var chips      = document.querySelectorAll('.chip[data-hero]');
   var heroIdx = 0, heroTimer = null;
 
   function showHero(i){
     heroIdx = i;
     chips.forEach(function(c, j){ c.setAttribute('aria-selected', String(j === i)); });
-    heroFrame.style.opacity = '0';
-    setTimeout(function(){
-      heroFrame.onload = function(){ heroFrame.style.opacity = '1'; };
-      heroFrame.src = heroSets[i][0];
-      heroUrl.textContent = heroSets[i][1];
-    }, reduceMotion ? 0 : 350);
+    heroFrames.forEach(function(f, j){ f.classList.toggle('is-active', j === i); });
+    heroUrl.textContent = heroLabels[i];
   }
   chips.forEach(function(c){
     c.addEventListener('click', function(){
@@ -612,7 +606,7 @@
     });
   });
   if(!reduceMotion){
-    heroTimer = setInterval(function(){ showHero((heroIdx + 1) % heroSets.length); }, 6000);
+    heroTimer = setInterval(function(){ showHero((heroIdx + 1) % heroFrames.length); }, 6000);
   }
 
   /* ---- ギャラリー:スタイル一括切り替え ---- */
